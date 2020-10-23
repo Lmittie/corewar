@@ -106,15 +106,9 @@ void	parse_exec_code(t_data *data, int fd, uint8_t uid)
 	size_t	i;
 
 	i = (MEM_SIZE / data->players_num) * (uid - 1);
+	create_carriage();
 	while (read(fd, &byte, 1))
-	{
 		data->arena[i++] = byte;
-	}
-	i = 0;
-	while (data->champs->header.prog_size--)
-	{
-		printf("%02x ", data->arena[i++]);
-	}
 }
 
 void	parse_champion(t_data *data, const char *file_name, uint8_t uid)
