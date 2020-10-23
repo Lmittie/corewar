@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:52:05 by lmittie           #+#    #+#             */
-/*   Updated: 2020/10/22 18:04:41 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/10/23 17:36:38 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void 	print_usage()
 void 	init(t_data *data)
 {
 	ft_bzero(data, sizeof(t_data));
+	data->cycles_to_die = CYCLE_TO_DIE;
 }
 
 int 	main(int ac, char **av)

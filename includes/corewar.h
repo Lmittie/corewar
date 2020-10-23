@@ -34,7 +34,7 @@ typedef struct		s_carriage
 	uint16_t			cycles_before;
 	uint32_t			curr_pos;
 	uint32_t			bytes_step;
-	uint16_t			registers[REG_NUMBER];
+	int16_t				registers[REG_NUMBER];
 	struct s_carriage	*next;
 }					t_carriage;
 
