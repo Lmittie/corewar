@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/10/22 16:34:55 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/10/27 18:03:37 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,19 @@
 # include "ft_printf.h"
 # include "op.h"
 # include <libc.h>
+
+typedef struct	s_op
+{
+	const char	*op_name;
+	uint8_t		args_num;
+	t_arg_type	args_type[4];
+	uint8_t		op_code;
+	uint16_t	cycles;
+	const char	*op_description;
+	uint8_t		arg_type_code;
+	//TODO change and understand this shit
+	uint8_t		dont_know;
+}				t_op;
 
 typedef struct		s_champ
 {
@@ -34,7 +47,8 @@ typedef struct		s_carriage
 	uint16_t			cycles_before;
 	uint32_t			curr_pos;
 	uint32_t			bytes_step;
-	int16_t				registers[REG_NUMBER];
+	int32_t				registers[REG_NUMBER];
+	uint8_t				args[3];
 	struct s_carriage	*next;
 }					t_carriage;
 
@@ -60,5 +74,7 @@ typedef struct		s_data
 
 void	parse_arguments(int ac, const char **av, t_data *data);
 void	parse_champions(t_args (*champs)[MAX_PLAYERS], t_data *data, const char **av);
+void	game(t_data *data);
+void	ctd_check(t_data *data);
 
 #endif

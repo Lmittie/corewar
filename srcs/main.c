@@ -36,6 +36,7 @@ int 	main(int ac, char **av)
 	{
 		init(&data);
 		parse_arguments(ac, (const char**)av, &data);
+		game(&data);
 	}
 	return (0);
 }

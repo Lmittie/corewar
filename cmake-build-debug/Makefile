@@ -2735,6 +2735,60 @@ ft_printf/utoa_base_buff_ox.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/ft_printf/utoa_base_buff_ox.c.s
 .PHONY : ft_printf/utoa_base_buff_ox.c.s
 
+srcs/cycles_to_die_check.o: srcs/cycles_to_die_check.c.o
+
+.PHONY : srcs/cycles_to_die_check.o
+
+# target to build an object file
+srcs/cycles_to_die_check.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.o
+.PHONY : srcs/cycles_to_die_check.c.o
+
+srcs/cycles_to_die_check.i: srcs/cycles_to_die_check.c.i
+
+.PHONY : srcs/cycles_to_die_check.i
+
+# target to preprocess a source file
+srcs/cycles_to_die_check.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.i
+.PHONY : srcs/cycles_to_die_check.c.i
+
+srcs/cycles_to_die_check.s: srcs/cycles_to_die_check.c.s
+
+.PHONY : srcs/cycles_to_die_check.s
+
+# target to generate assembly for a file
+srcs/cycles_to_die_check.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.s
+.PHONY : srcs/cycles_to_die_check.c.s
+
+srcs/game.o: srcs/game.c.o
+
+.PHONY : srcs/game.o
+
+# target to build an object file
+srcs/game.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/game.c.o
+.PHONY : srcs/game.c.o
+
+srcs/game.i: srcs/game.c.i
+
+.PHONY : srcs/game.i
+
+# target to preprocess a source file
+srcs/game.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/game.c.i
+.PHONY : srcs/game.c.i
+
+srcs/game.s: srcs/game.c.s
+
+.PHONY : srcs/game.s
+
+# target to generate assembly for a file
+srcs/game.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/game.c.s
+.PHONY : srcs/game.c.s
+
 srcs/main.o: srcs/main.c.o
 
 .PHONY : srcs/main.o
@@ -2788,6 +2842,33 @@ srcs/op.s: srcs/op.c.s
 srcs/op.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/op.c.s
 .PHONY : srcs/op.c.s
+
+srcs/operations.o: srcs/operations.c.o
+
+.PHONY : srcs/operations.o
+
+# target to build an object file
+srcs/operations.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/operations.c.o
+.PHONY : srcs/operations.c.o
+
+srcs/operations.i: srcs/operations.c.i
+
+.PHONY : srcs/operations.i
+
+# target to preprocess a source file
+srcs/operations.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/operations.c.i
+.PHONY : srcs/operations.c.i
+
+srcs/operations.s: srcs/operations.c.s
+
+.PHONY : srcs/operations.s
+
+# target to generate assembly for a file
+srcs/operations.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/operations.c.s
+.PHONY : srcs/operations.c.s
 
 srcs/parse_arguments.o: srcs/parse_arguments.c.o
 
@@ -3140,12 +3221,21 @@ help:
 	@echo "... ft_printf/utoa_base_buff_ox.o"
 	@echo "... ft_printf/utoa_base_buff_ox.i"
 	@echo "... ft_printf/utoa_base_buff_ox.s"
+	@echo "... srcs/cycles_to_die_check.o"
+	@echo "... srcs/cycles_to_die_check.i"
+	@echo "... srcs/cycles_to_die_check.s"
+	@echo "... srcs/game.o"
+	@echo "... srcs/game.i"
+	@echo "... srcs/game.s"
 	@echo "... srcs/main.o"
 	@echo "... srcs/main.i"
 	@echo "... srcs/main.s"
 	@echo "... srcs/op.o"
 	@echo "... srcs/op.i"
 	@echo "... srcs/op.s"
+	@echo "... srcs/operations.o"
+	@echo "... srcs/operations.i"
+	@echo "... srcs/operations.s"
 	@echo "... srcs/parse_arguments.o"
 	@echo "... srcs/parse_arguments.i"
 	@echo "... srcs/parse_arguments.s"

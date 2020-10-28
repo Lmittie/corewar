@@ -386,10 +386,19 @@
 		<Unit filename="/Users/lmittie/Desktop/corewar/includes/op.h">
 			<Option target="corewar"/>
 		</Unit>
+		<Unit filename="/Users/lmittie/Desktop/corewar/srcs/cycles_to_die_check.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/Users/lmittie/Desktop/corewar/srcs/game.c">
+			<Option target="corewar"/>
+		</Unit>
 		<Unit filename="/Users/lmittie/Desktop/corewar/srcs/main.c">
 			<Option target="corewar"/>
 		</Unit>
 		<Unit filename="/Users/lmittie/Desktop/corewar/srcs/op.c">
+			<Option target="corewar"/>
+		</Unit>
+		<Unit filename="/Users/lmittie/Desktop/corewar/srcs/operations.c">
 			<Option target="corewar"/>
 		</Unit>
 		<Unit filename="/Users/lmittie/Desktop/corewar/srcs/parse_arguments.c">
