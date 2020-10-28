@@ -88,13 +88,13 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 	return (1);
 }
 
-void	exec_op(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
+void	exec_op(t_data *data, t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 {
 	size_t pos;
 
 	pos = (*carriage)->curr_pos;
 	pos += (op_tab[(*carriage)->op_code - 1].arg_type_code) ? 2 : 1;
-	// execute
+	op_tab[(*carriage)->op_code - 1].func(data, carriage, pos);
 }
 
 void	validate_and_exec(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
