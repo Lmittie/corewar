@@ -318,11 +318,45 @@ CMakeFiles/corewar.dir/ft_printf/utoa_base_buff_ox.c.o: ../ft_printf/ft_printf.h
 CMakeFiles/corewar.dir/ft_printf/utoa_base_buff_ox.c.o: ../ft_printf/libft/libft.h
 CMakeFiles/corewar.dir/ft_printf/utoa_base_buff_ox.c.o: ../ft_printf/utoa_base_buff_ox.c
 
+CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.o: ../ft_printf/ft_printf.h
+CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.o: ../ft_printf/libft/libft.h
+CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.o: ../includes/corewar.h
+CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.o: ../includes/op.h
+CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.o: ../srcs/cycles_to_die_check.c
+
+CMakeFiles/corewar.dir/srcs/game.c.o: ../ft_printf/ft_printf.h
+CMakeFiles/corewar.dir/srcs/game.c.o: ../ft_printf/libft/libft.h
+CMakeFiles/corewar.dir/srcs/game.c.o: ../includes/corewar.h
+CMakeFiles/corewar.dir/srcs/game.c.o: ../includes/op.h
+CMakeFiles/corewar.dir/srcs/game.c.o: ../srcs/game.c
+
 CMakeFiles/corewar.dir/srcs/main.c.o: ../ft_printf/ft_printf.h
 CMakeFiles/corewar.dir/srcs/main.c.o: ../ft_printf/libft/libft.h
 CMakeFiles/corewar.dir/srcs/main.c.o: ../includes/corewar.h
 CMakeFiles/corewar.dir/srcs/main.c.o: ../includes/op.h
 CMakeFiles/corewar.dir/srcs/main.c.o: ../srcs/main.c
 
+CMakeFiles/corewar.dir/srcs/op.c.o: ../ft_printf/ft_printf.h
+CMakeFiles/corewar.dir/srcs/op.c.o: ../ft_printf/libft/libft.h
+CMakeFiles/corewar.dir/srcs/op.c.o: ../includes/corewar.h
+CMakeFiles/corewar.dir/srcs/op.c.o: ../includes/op.h
 CMakeFiles/corewar.dir/srcs/op.c.o: ../srcs/op.c
+
+CMakeFiles/corewar.dir/srcs/operations.c.o: ../ft_printf/ft_printf.h
+CMakeFiles/corewar.dir/srcs/operations.c.o: ../ft_printf/libft/libft.h
+CMakeFiles/corewar.dir/srcs/operations.c.o: ../includes/corewar.h
+CMakeFiles/corewar.dir/srcs/operations.c.o: ../includes/op.h
+CMakeFiles/corewar.dir/srcs/operations.c.o: ../srcs/operations.c
+
+CMakeFiles/corewar.dir/srcs/parse_arguments.c.o: ../ft_printf/ft_printf.h
+CMakeFiles/corewar.dir/srcs/parse_arguments.c.o: ../ft_printf/libft/libft.h
+CMakeFiles/corewar.dir/srcs/parse_arguments.c.o: ../includes/corewar.h
+CMakeFiles/corewar.dir/srcs/parse_arguments.c.o: ../includes/op.h
+CMakeFiles/corewar.dir/srcs/parse_arguments.c.o: ../srcs/parse_arguments.c
+
+CMakeFiles/corewar.dir/srcs/parse_champions.c.o: ../ft_printf/ft_printf.h
+CMakeFiles/corewar.dir/srcs/parse_champions.c.o: ../ft_printf/libft/libft.h
+CMakeFiles/corewar.dir/srcs/parse_champions.c.o: ../includes/corewar.h
+CMakeFiles/corewar.dir/srcs/parse_champions.c.o: ../includes/op.h
+CMakeFiles/corewar.dir/srcs/parse_champions.c.o: ../srcs/parse_champions.c
 

@@ -27,12 +27,12 @@ ft_printf.h
 ../includes/ft_printf.h
 op.h
 ../includes/op.h
+libc.h
+-
 
 ../includes/op.h
 
-/Users/lmittie/Desktop/corewar/srcs/main.c
+/Users/lmittie/Desktop/corewar/srcs/operations.c
 corewar.h
 /Users/lmittie/Desktop/corewar/srcs/corewar.h
-stdio.h
--
 

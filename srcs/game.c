@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
-/*   Updated: 2020/10/27 18:08:48 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/10/29 17:30:22 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 			if (!((*carriage)->args[i] & op_tab[(*carriage)->op_code - 1].args_type[i]))
 				wrong_args = 1;
 			if ((*carriage)->args[i] == T_REG
-			&& ((*arena)[(*carriage)->curr_pos + (*carriage)->bytes_step] == 0
-			|| (*arena)[(*carriage)->curr_pos + (*carriage)->bytes_step] > REG_NUMBER))
+			&& ((*arena)[((*carriage)->curr_pos + (*carriage)->bytes_step) % MEM_SIZE] == 0
+			|| (*arena)[((*carriage)->curr_pos + (*carriage)->bytes_step) % MEM_SIZE] > REG_NUMBER))
 				wrong_args = 1;
 			if ((*carriage)->args[i] == T_REG)
 				(*carriage)->bytes_step += T_REG;
@@ -78,6 +78,7 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 				(*carriage)->bytes_step += DIR_SIZE; // or 2
 			else if ((*carriage)->args[i] == T_IND)
 				(*carriage)->bytes_step += IND_SIZE;
+			i++;
 		}
 	}
 	if (wrong_args)
@@ -88,39 +89,45 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 	return (1);
 }
 
-void	exec_op(t_data *data, t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
+void	exec_op(t_data *data, t_carriage **carriage)
 {
 	size_t pos;
 
 	pos = (*carriage)->curr_pos;
 	pos += (op_tab[(*carriage)->op_code - 1].arg_type_code) ? 2 : 1;
 	op_tab[(*carriage)->op_code - 1].func(data, carriage, pos);
+	(*carriage)->curr_pos += (*carriage)->bytes_step;
 }
 
-void	validate_and_exec(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
+void	validate_and_exec(t_data *data, t_carriage **carriage)
 {
-	if (!validate_op(carriage, arena))
+	if (!validate_op(carriage, &data->arena))
 		return ;
-	if (!validate_args(carriage, arena))
+	if (!validate_args(carriage, &data->arena))
 		return ;
-	exec_op(carriage, arena);
+	exec_op(data, carriage);
 }
 
-void	carriage_check(t_carriage **clist, const uint8_t (*arena)[MEM_SIZE])
+void	carriage_check(t_data *data)
 {
 	t_carriage *it;
 
-	it = *clist;
+	it = data->carriage_list;
 	while (it)
 	{
 		if (it->cycles_before == 0)
-			set_op_code(&it, arena);
+			set_op_code(&it, &data->arena);
 		if (it->cycles_before > 0)
 			it->cycles_before--;
 		if (it->cycles_before == 0)
-			validate_and_exec(&it, arena);
+			validate_and_exec(data, &it);
 		it = it->next;
 	}
+//	for (t_carriage *car = data->carriage_list; car != NULL; car = car->next)
+//	{
+//		ft_printf("%d - > ", car->uid);
+//	}
+//	ft_printf("\n");
 }
 
 void	game(t_data *data)
@@ -129,16 +136,20 @@ void	game(t_data *data)
 	while (1)
 	{
 		data->cycles++;
+//		ft_printf("%d\n", data->cycles);
 		if (data->cycles == data->dump_cycles)
 		{
 			print_arena_state(&data->arena);
 			return ;
 		}
-		carriage_check(&data->carriage_list, &data->arena);
+		carriage_check(data);
 		if (data->cycles % data->cycles_to_die == 0)
 		{
 			ctd_check(data);
 			data->live_op_counter = 0;
 		}
+		if (data->carriage_list == NULL)
+			break ;
 	}
+	ft_printf("Winner: %s\n", data->champs[data->winner_id - 1].header.prog_name);
 }

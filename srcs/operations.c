@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 18:05:33 by lmittie           #+#    #+#             */
-/*   Updated: 2020/10/28 19:58:35 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/10/29 17:36:52 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ uint32_t	get_arg(size_t size, const uint8_t (*arena)[MEM_SIZE], size_t pos)
 		arg |= (*arena)[(pos + i) % MEM_SIZE];
 		i++;
 	}
+	ft_printf("\n");
 	return (arg);
 }
 
@@ -35,12 +36,13 @@ void		live(t_data *data, t_carriage **carriage, size_t pos)
 	uint32_t	r;
 
 	r = get_arg(DIR_SIZE, &data->arena, pos);
+	ft_printf("r = %d\n", r);
 	if (r <= data->players_num && r > 0)
 	{
 		data->winner_id = r;
 		ft_printf("A process shows that %u (%s) is alive\n",
 				  r,
-				  data->champs[r].header.prog_name);
+				  data->champs[r - 1].header.prog_name);
 	}
 	(*carriage)->last_live_cycle = data->cycles;
 	data->live_op_counter++;
@@ -84,7 +86,7 @@ void	st(t_data *data, t_carriage **carriage, size_t pos)
 	{
 		r_inx2 = get_arg(IND_SIZE, &data->arena, pos + 1);
 		shift = (*carriage)->curr_pos + r_inx2 % IDX_MOD;
-		data->arena[shift] = (*carriage)->registers[r_inx1];
+		data->arena[shift % MEM_SIZE] = (*carriage)->registers[r_inx1];
 	}
 }
 

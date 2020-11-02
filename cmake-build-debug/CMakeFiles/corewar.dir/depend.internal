@@ -318,6 +318,18 @@ CMakeFiles/corewar.dir/ft_printf/utoa_base_buff_ox.c.o
  /Users/lmittie/Desktop/corewar/ft_printf/ft_printf.h
  /Users/lmittie/Desktop/corewar/ft_printf/libft/libft.h
  /Users/lmittie/Desktop/corewar/ft_printf/utoa_base_buff_ox.c
+CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.o
+ ../ft_printf/ft_printf.h
+ ../ft_printf/libft/libft.h
+ ../includes/corewar.h
+ ../includes/op.h
+ /Users/lmittie/Desktop/corewar/srcs/cycles_to_die_check.c
+CMakeFiles/corewar.dir/srcs/game.c.o
+ ../ft_printf/ft_printf.h
+ ../ft_printf/libft/libft.h
+ ../includes/corewar.h
+ ../includes/op.h
+ /Users/lmittie/Desktop/corewar/srcs/game.c
 CMakeFiles/corewar.dir/srcs/main.c.o
  ../ft_printf/ft_printf.h
  ../ft_printf/libft/libft.h
@@ -325,4 +337,26 @@ CMakeFiles/corewar.dir/srcs/main.c.o
  ../includes/op.h
  /Users/lmittie/Desktop/corewar/srcs/main.c
 CMakeFiles/corewar.dir/srcs/op.c.o
+ ../ft_printf/ft_printf.h
+ ../ft_printf/libft/libft.h
+ ../includes/corewar.h
+ ../includes/op.h
  /Users/lmittie/Desktop/corewar/srcs/op.c
+CMakeFiles/corewar.dir/srcs/operations.c.o
+ ../ft_printf/ft_printf.h
+ ../ft_printf/libft/libft.h
+ ../includes/corewar.h
+ ../includes/op.h
+ /Users/lmittie/Desktop/corewar/srcs/operations.c
+CMakeFiles/corewar.dir/srcs/parse_arguments.c.o
+ ../ft_printf/ft_printf.h
+ ../ft_printf/libft/libft.h
+ ../includes/corewar.h
+ ../includes/op.h
+ /Users/lmittie/Desktop/corewar/srcs/parse_arguments.c
+CMakeFiles/corewar.dir/srcs/parse_champions.c.o
+ ../ft_printf/ft_printf.h
+ ../ft_printf/libft/libft.h
+ ../includes/corewar.h
+ ../includes/op.h
+ /Users/lmittie/Desktop/corewar/srcs/parse_champions.c
