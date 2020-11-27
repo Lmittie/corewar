@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 18:05:33 by lmittie           #+#    #+#             */
-/*   Updated: 2020/10/29 17:36:52 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/11/27 21:04:23 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ uint32_t	get_arg(size_t size, const uint8_t (*arena)[MEM_SIZE], size_t pos)
 		arg |= (*arena)[(pos + i) % MEM_SIZE];
 		i++;
 	}
-	ft_printf("\n");
+//	ft_printf("\n");
 	return (arg);
 }
 
@@ -36,7 +36,7 @@ void		live(t_data *data, t_carriage **carriage, size_t pos)
 	uint32_t	r;
 
 	r = get_arg(DIR_SIZE, &data->arena, pos);
-	ft_printf("r = %d\n", r);
+	ft_printf("r = %d, pos = %d\n", r, pos);
 	if (r <= data->players_num && r > 0)
 	{
 		data->winner_id = r;
@@ -66,7 +66,7 @@ void	ld(t_data *data, t_carriage **carriage, size_t pos)
 		arg = get_arg(DIR_SIZE, &data->arena, shift);
 		r_inx = data->arena[(pos + IND_SIZE) % MEM_SIZE];
 	}
-	(*carriage)->registers[r_inx] = arg;
+	(*carriage)->registers[r_inx - 1] = arg;
 	(*carriage)->carry = (arg == 0) ? 1 : 0;
 }
 
@@ -80,13 +80,13 @@ void	st(t_data *data, t_carriage **carriage, size_t pos)
 	if ((*carriage)->args[1] == T_REG)
 	{
 		r_inx2 = data->arena[(pos + 1) % MEM_SIZE];
-		(*carriage)->registers[r_inx2] = (*carriage)->registers[r_inx1];
+		(*carriage)->registers[r_inx2 - 1] = (*carriage)->registers[r_inx1 - 1];
 	}
 	else if ((*carriage)->args[1] == T_IND)
 	{
 		r_inx2 = get_arg(IND_SIZE, &data->arena, pos + 1);
 		shift = (*carriage)->curr_pos + r_inx2 % IDX_MOD;
-		data->arena[shift % MEM_SIZE] = (*carriage)->registers[r_inx1];
+		data->arena[shift % MEM_SIZE] = (*carriage)->registers[r_inx1 - 1];
 	}
 }
 
@@ -99,9 +99,9 @@ void	add(t_data *data, t_carriage **carriage, size_t pos)
 	r_inx1 = data->arena[pos++ % MEM_SIZE];
 	r_inx2 = data->arena[pos++ % MEM_SIZE];
 	r_inx3 = data->arena[pos % MEM_SIZE];
-	(*carriage)->registers[r_inx3] = (*carriage)->registers[r_inx1]
-									+ (*carriage)->registers[r_inx2];
-	(*carriage)->carry = ((*carriage)->registers[r_inx3]) ? 0 : 1;
+	(*carriage)->registers[r_inx3 - 1] = (*carriage)->registers[r_inx1 - 1]
+									+ (*carriage)->registers[r_inx2 - 1];
+	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 }
 
 void	sub(t_data *data, t_carriage **carriage, size_t pos)
@@ -113,9 +113,9 @@ void	sub(t_data *data, t_carriage **carriage, size_t pos)
 	r_inx1 = data->arena[pos++ % MEM_SIZE];
 	r_inx2 = data->arena[pos++ % MEM_SIZE];
 	r_inx3 = data->arena[pos % MEM_SIZE];
-	(*carriage)->registers[r_inx3] = (*carriage)->registers[r_inx1]
-									 - (*carriage)->registers[r_inx2];
-	(*carriage)->carry = ((*carriage)->registers[r_inx3]) ? 0 : 1;
+	(*carriage)->registers[r_inx3 - 1] = (*carriage)->registers[r_inx1 - 1]
+									 - (*carriage)->registers[r_inx2 - 1];
+	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 }
 
 
@@ -128,22 +128,22 @@ void	and(t_data *data, t_carriage **carriage, size_t pos)
 	size_t		shift;
 
 	if ((*carriage)->args[0] == T_REG && (shift = T_REG))
-		arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE]];
+		arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE] - 1];
 	else if ((*carriage)->args[0] == T_DIR && (shift = DIR_SIZE))
 		arg1 = get_arg(DIR_SIZE, &data->arena, pos);
 	else if ((*carriage)->args[0] == T_IND && (shift = IND_SIZE))
 		arg1 = get_arg(DIR_SIZE, &data->arena,
 					   (*carriage)->curr_pos + get_arg(IND_SIZE, &data->arena, pos));
 	if ((*carriage)->args[1] == T_REG && (shift += T_REG))
-		arg2 = (*carriage)->registers[data->arena[(pos + shift - T_REG) % MEM_SIZE]];
+		arg2 = (*carriage)->registers[data->arena[(pos + shift - T_REG) % MEM_SIZE] - 1];
 	else if ((*carriage)->args[1] == T_DIR && (shift += DIR_SIZE))
 		arg2 = get_arg(DIR_SIZE, &data->arena, pos + shift - DIR_SIZE);
 	else if ((*carriage)->args[1] == T_IND && (shift += IND_SIZE))
 		arg2 = get_arg(DIR_SIZE, &data->arena,
 				 (*carriage)->curr_pos + get_arg(IND_SIZE, &data->arena, pos + shift - IND_SIZE));
 	r_inx3 = data->arena[(pos + shift) % MEM_SIZE];
-	(*carriage)->registers[r_inx3] = arg1 & arg2;
-	(*carriage)->carry = ((*carriage)->registers[r_inx3]) ? 0 : 1;
+	(*carriage)->registers[r_inx3 - 1] = arg1 & arg2;
+	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 }
 
 void	or(t_data *data, t_carriage **carriage, size_t pos)
@@ -154,22 +154,22 @@ void	or(t_data *data, t_carriage **carriage, size_t pos)
 	size_t		shift;
 
 	if ((*carriage)->args[0] == T_REG && (shift = T_REG))
-		arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE]];
+		arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE] - 1];
 	else if ((*carriage)->args[0] == T_DIR && (shift = DIR_SIZE))
 		arg1 = get_arg(DIR_SIZE, &data->arena, pos);
 	else if ((*carriage)->args[0] == T_IND && (shift = IND_SIZE))
 		arg1 = get_arg(DIR_SIZE, &data->arena,
 					   (*carriage)->curr_pos + get_arg(IND_SIZE, &data->arena, pos));
 	if ((*carriage)->args[1] == T_REG && (shift += T_REG))
-		arg2 = (*carriage)->registers[data->arena[(pos + shift - T_REG) % MEM_SIZE]];
+		arg2 = (*carriage)->registers[data->arena[(pos + shift - T_REG) % MEM_SIZE] - 1];
 	else if ((*carriage)->args[1] == T_DIR && (shift += DIR_SIZE))
 		arg2 = get_arg(DIR_SIZE, &data->arena, pos + shift - DIR_SIZE);
 	else if ((*carriage)->args[1] == T_IND && (shift += IND_SIZE))
 		arg2 = get_arg(DIR_SIZE, &data->arena,
 					   (*carriage)->curr_pos + get_arg(IND_SIZE, &data->arena, pos + shift - IND_SIZE));
 	r_inx3 = data->arena[(pos + shift) % MEM_SIZE];
-	(*carriage)->registers[r_inx3] = arg1 | arg2;
-	(*carriage)->carry = ((*carriage)->registers[r_inx3]) ? 0 : 1;
+	(*carriage)->registers[r_inx3 - 1] = arg1 | arg2;
+	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 }
 
 void	xor(t_data *data, t_carriage **carriage, size_t pos)
@@ -180,22 +180,22 @@ void	xor(t_data *data, t_carriage **carriage, size_t pos)
 	size_t		shift;
 
 	if ((*carriage)->args[0] == T_REG && (shift = T_REG))
-		arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE]];
+		arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE] - 1];
 	else if ((*carriage)->args[0] == T_DIR && (shift = DIR_SIZE))
 		arg1 = get_arg(DIR_SIZE, &data->arena, pos);
 	else if ((*carriage)->args[0] == T_IND && (shift = IND_SIZE))
 		arg1 = get_arg(DIR_SIZE, &data->arena,
 					   (*carriage)->curr_pos + get_arg(IND_SIZE, &data->arena, pos));
 	if ((*carriage)->args[1] == T_REG && (shift += T_REG))
-		arg2 = (*carriage)->registers[data->arena[(pos + shift - T_REG) % MEM_SIZE]];
+		arg2 = (*carriage)->registers[data->arena[(pos + shift - T_REG) % MEM_SIZE] - 1];
 	else if ((*carriage)->args[1] == T_DIR && (shift += DIR_SIZE))
 		arg2 = get_arg(DIR_SIZE, &data->arena, pos + shift - DIR_SIZE);
 	else if ((*carriage)->args[1] == T_IND && (shift += IND_SIZE))
 		arg2 = get_arg(DIR_SIZE, &data->arena,
 					   (*carriage)->curr_pos + get_arg(IND_SIZE, &data->arena, pos + shift - IND_SIZE));
 	r_inx3 = data->arena[(pos + shift) % MEM_SIZE];
-	(*carriage)->registers[r_inx3] = arg1 ^ arg2;
-	(*carriage)->carry = ((*carriage)->registers[r_inx3]) ? 0 : 1;
+	(*carriage)->registers[r_inx3 - 1] = arg1 ^ arg2;
+	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 }
 
 void	zjmp(t_data *data, t_carriage **carriage, size_t pos)
@@ -215,18 +215,18 @@ void	ldi(t_data *data, t_carriage **carriage, size_t pos)
 	size_t		shift;
 
 	if ((*carriage)->args[0] == T_REG && (shift = T_REG))
-		arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE]];
+		arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE] - 1];
 	else if ((*carriage)->args[0] == T_DIR && (shift = DIR_SIZE))
 		arg1 = get_arg(DIR_SIZE, &data->arena, pos);
 	else if ((*carriage)->args[0] == T_IND && (shift = IND_SIZE))
 		arg1 = get_arg(DIR_SIZE, &data->arena,
 					   (*carriage)->curr_pos + get_arg(IND_SIZE, &data->arena, pos));
 	if ((*carriage)->args[1] == T_REG && (shift += T_REG))
-		arg2 = (*carriage)->registers[data->arena[(pos + shift - T_REG) % MEM_SIZE]];
+		arg2 = (*carriage)->registers[data->arena[(pos + shift - T_REG) % MEM_SIZE] - 1];
 	else if ((*carriage)->args[1] == T_DIR && (shift += DIR_SIZE))
 		arg2 = get_arg(DIR_SIZE, &data->arena, pos + shift - DIR_SIZE);
 	r_inx3 = data->arena[(pos + shift) % MEM_SIZE];
-	(*carriage)->registers[r_inx3] = get_arg(
+	(*carriage)->registers[r_inx3 - 1] = get_arg(
 			DIR_SIZE,
 			&data->arena,
 			(*carriage)->curr_pos + (arg1 + arg2) % IDX_MOD);
@@ -239,17 +239,17 @@ void	sti(t_data *data, t_carriage **carriage, size_t pos)
 	uint16_t	arg3;
 	size_t		shift;
 
-	arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE]];
+	arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE] - 1];
 	shift = 1;
 	if ((*carriage)->args[1] == T_REG && (shift += T_REG))
-		arg2 = (*carriage)->registers[data->arena[pos % MEM_SIZE]];
+		arg2 = (*carriage)->registers[data->arena[pos % MEM_SIZE] - 1];
 	else if ((*carriage)->args[1] == T_DIR && (shift += IND_SIZE))
 		arg2 = get_arg(IND_SIZE, &data->arena, pos);
 	else if ((*carriage)->args[1] == T_IND && (shift += IND_SIZE))
 		arg2 = get_arg(IND_SIZE, &data->arena,
 					   (*carriage)->curr_pos + get_arg(IND_SIZE, &data->arena, pos));
 	if ((*carriage)->args[2] == T_REG )
-		arg3 = (*carriage)->registers[data->arena[(pos + shift) % MEM_SIZE]];
+		arg3 = (*carriage)->registers[data->arena[(pos + shift) % MEM_SIZE] - 1];
 	else if ((*carriage)->args[2] == T_DIR)
 		arg3 = get_arg(IND_SIZE, &data->arena, pos + shift);
 	pos = (*carriage)->curr_pos + (arg2 + arg3) % IDX_MOD;
@@ -290,7 +290,7 @@ void	lld(t_data *data, t_carriage **carriage, size_t pos)
 		arg = get_arg(DIR_SIZE, &data->arena, shift);
 		r_inx = data->arena[(pos + IND_SIZE) % MEM_SIZE];
 	}
-	(*carriage)->registers[r_inx] = arg;
+	(*carriage)->registers[r_inx - 1] = arg;
 	(*carriage)->carry = (arg == 0) ? 1 : 0;
 }
 
@@ -302,18 +302,18 @@ void	lldi(t_data *data, t_carriage **carriage, size_t pos)
 	size_t		shift;
 
 	if ((*carriage)->args[0] == T_REG && (shift = T_REG))
-		arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE]];
+		arg1 = (*carriage)->registers[data->arena[pos % MEM_SIZE] - 1];
 	else if ((*carriage)->args[0] == T_DIR && (shift = DIR_SIZE))
 		arg1 = get_arg(DIR_SIZE, &data->arena, pos);
 	else if ((*carriage)->args[0] == T_IND && (shift = IND_SIZE))
 		arg1 = get_arg(DIR_SIZE, &data->arena,
 					   (*carriage)->curr_pos + get_arg(IND_SIZE, &data->arena, pos));
 	if ((*carriage)->args[1] == T_REG && (shift += T_REG))
-		arg2 = (*carriage)->registers[data->arena[(pos + shift - T_REG) % MEM_SIZE]];
+		arg2 = (*carriage)->registers[data->arena[(pos + shift - T_REG) % MEM_SIZE] - 1];
 	else if ((*carriage)->args[1] == T_DIR && (shift += DIR_SIZE))
 		arg2 = get_arg(DIR_SIZE, &data->arena, pos + shift - DIR_SIZE);
 	r_inx3 = data->arena[(pos + shift) % MEM_SIZE];
-	(*carriage)->registers[r_inx3] = get_arg(
+	(*carriage)->registers[r_inx3 - 1] = get_arg(
 			DIR_SIZE,
 			&data->arena,
 			(*carriage)->curr_pos + (arg1 + arg2));
@@ -336,5 +336,5 @@ void	aff(t_data *data, t_carriage **carriage, size_t pos)
 
 	r = data->arena[pos];
 	if (data->a_flag)
-		ft_printf("%c\n", (char)((*carriage)->registers[r] % 256));
+		ft_printf("%c\n", (char)((*carriage)->registers[r - 1] % 256));
 }

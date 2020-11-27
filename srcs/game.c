@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
-/*   Updated: 2020/10/29 17:30:22 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/11/27 20:53:13 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 			if ((*carriage)->args[i] == T_REG)
 				(*carriage)->bytes_step += T_REG;
 			else if ((*carriage)->args[i] == T_DIR)
-				(*carriage)->bytes_step += DIR_SIZE; // or 2
+				(*carriage)->bytes_step += op_tab[(*carriage)->op_code - 1].dir_size; // or 2
 			else if ((*carriage)->args[i] == T_IND)
 				(*carriage)->bytes_step += IND_SIZE;
 			i++;
@@ -133,6 +133,11 @@ void	carriage_check(t_data *data)
 void	game(t_data *data)
 {
 	data->winner_id = data->champs[data->players_num - 1].uid;
+	int s = data->champs[0].header.prog_size;
+	int b = 0;
+	while (b < s)
+		ft_printf("%.2x ", data->arena[b++ % MEM_SIZE]);
+	ft_printf("\n");
 	while (1)
 	{
 		data->cycles++;
@@ -151,5 +156,6 @@ void	game(t_data *data)
 		if (data->carriage_list == NULL)
 			break ;
 	}
-	ft_printf("Winner: %s\n", data->champs[data->winner_id - 1].header.prog_name);
+	ft_printf("Contestant %u, \"%s\", has won !\n", data->champs[data->winner_id - 1].uid,
+		   data->champs[data->winner_id - 1].header.prog_name);
 }

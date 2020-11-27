@@ -32,7 +32,7 @@ libc.h
 
 ../includes/op.h
 
-/Users/lmittie/Desktop/corewar/srcs/operations.c
+/Users/lmittie/Desktop/corewar/srcs/game.c
 corewar.h
 /Users/lmittie/Desktop/corewar/srcs/corewar.h
 

@@ -69,6 +69,7 @@ typedef struct	s_op
 	uint16_t	cycles;
 	const char	*op_description;
 	uint8_t		arg_type_code;
+	uint8_t		dir_size;
 	void		(*func)(t_data *, t_carriage **, size_t);
 }				t_op;
 
