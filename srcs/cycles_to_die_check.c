@@ -35,10 +35,8 @@ void	ctd_check(t_data *data)
 
 	it = data->carriage_list;
 	prev_it = NULL;
-//	ft_printf("here\n");
 	while (it)
 	{
-//		ft_printf("here\n");
 		// TODO check formula
 		if (data->cycles - it->last_live_cycle >= data->cycles_to_die)
 		{

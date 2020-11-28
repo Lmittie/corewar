@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:52:05 by lmittie           #+#    #+#             */
-/*   Updated: 2020/10/23 17:36:38 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/11/28 21:31:07 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,22 @@ void 	init(t_data *data)
 {
 	ft_bzero(data, sizeof(t_data));
 	data->cycles_to_die = CYCLE_TO_DIE;
+//	data->carriage_list = NULL;
+//	init_carriage(&data->carriage_list, 1, 0);
+//	data->players_num = 1;
+//	data->champs[0].header.prog_name[0] = 'a';
+//	data->champs[0].uid = 1;
 }
 
 int 	main(int ac, char **av)
 {
 	t_data	data;
 
+//	init(&data);
+//	for (int i = 1; i < 5; ++i) {
+//		data.arena[i] = 0xff;
+//	}
+//	live(&data, &data.carriage_list, 1);
 	if (ac == 1)
 		print_usage();
 	else

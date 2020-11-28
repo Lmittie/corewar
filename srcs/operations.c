@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 18:05:33 by lmittie           #+#    #+#             */
-/*   Updated: 2020/11/27 21:04:23 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/11/28 21:29:02 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,35 @@
 
 extern t_op op_tab[17];
 
-uint32_t	get_arg(size_t size, const uint8_t (*arena)[MEM_SIZE], size_t pos)
+int32_t	get_arg(size_t size, const uint8_t (*arena)[MEM_SIZE], size_t pos)
 {
 	size_t i;
-	uint32_t arg;
+	int32_t arg;
 
 	i = 0;
 	arg = 0;
 	while (i < size)
 	{
-		arg <<= (uint32_t)8;
+		arg <<= (int32_t)8;
 		arg |= (*arena)[(pos + i) % MEM_SIZE];
 		i++;
 	}
-//	ft_printf("\n");
-	return (arg);
+	if (size == 2 && arg & 0x8000)
+		arg |= 0xFFFF0000;
+	return ((int)arg);
 }
 
 void		live(t_data *data, t_carriage **carriage, size_t pos)
 {
-	uint32_t	r;
+	int32_t	r;
 
 	r = get_arg(DIR_SIZE, &data->arena, pos);
-	ft_printf("r = %d, pos = %d\n", r, pos);
-	if (r <= data->players_num && r > 0)
+	ft_printf("r = %d, pos = %d, player = %d\n", r, pos, data->champs[(*carriage)->uid - 1].uid);
+	if (r >= -data->players_num && r < 0)
 	{
-		data->winner_id = r;
-		ft_printf("A process shows that %u (%s) is alive\n",
-				  r,
+		data->winner_id = r * -1;
+		ft_printf("A process shows that %d (%s) is alive\n",
+				  r * -1,
 				  data->champs[r - 1].header.prog_name);
 	}
 	(*carriage)->last_live_cycle = data->cycles;
