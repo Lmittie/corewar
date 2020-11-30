@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/10/28 19:58:35 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/11/30 18:45:10 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct		s_carriage
 	uint8_t				op_code;
 	uint32_t			last_live_cycle;
 	uint16_t			cycles_before;
-	uint32_t			curr_pos;
+	int32_t				curr_pos;
 	uint32_t			bytes_step;
 	int32_t				registers[REG_NUMBER];
 	uint8_t				args[3];
@@ -70,30 +70,31 @@ typedef struct	s_op
 	const char	*op_description;
 	uint8_t		arg_type_code;
 	uint8_t		dir_size;
-	void		(*func)(t_data *, t_carriage **, size_t);
+	void		(*func)(t_data *, t_carriage **, int32_t);
 }				t_op;
 
+int32_t	get_pos(int32_t pos);
 void	parse_arguments(int ac, const char **av, t_data *data);
 void	parse_champions(t_args (*champs)[MAX_PLAYERS], t_data *data, const char **av);
 void	game(t_data *data);
 void	ctd_check(t_data *data);
 void	init_carriage(t_carriage **clist, uint8_t uid, size_t pos);
 
-void		live(t_data *data, t_carriage **carriage, size_t pos);
-void		ld(t_data *data, t_carriage **carriage, size_t pos);
-void		st(t_data *data, t_carriage **carriage, size_t pos);
-void		add(t_data *data, t_carriage **carriage, size_t pos);
-void		sub(t_data *data, t_carriage **carriage, size_t pos);
-void		and(t_data *data, t_carriage **carriage, size_t pos);
-void		or(t_data *data, t_carriage **carriage, size_t pos);
-void		xor(t_data *data, t_carriage **carriage, size_t pos);
-void		zjmp(t_data *data, t_carriage **carriage, size_t pos);
-void		ldi(t_data *data, t_carriage **carriage, size_t pos);
-void		sti(t_data *data, t_carriage **carriage, size_t pos);
-void		fork_(t_data *data, t_carriage **carriage, size_t pos);
-void		lld(t_data *data, t_carriage **carriage, size_t pos);
-void		lldi(t_data *data, t_carriage **carriage, size_t pos);
-void		lfork(t_data *data, t_carriage **carriage, size_t pos);
-void		aff(t_data *data, t_carriage **carriage, size_t pos);
+void		live(t_data *data, t_carriage **carriage, int32_t pos);
+void		ld(t_data *data, t_carriage **carriage, int32_t pos);
+void		st(t_data *data, t_carriage **carriage, int32_t pos);
+void		add(t_data *data, t_carriage **carriage, int32_t pos);
+void		sub(t_data *data, t_carriage **carriage, int32_t pos);
+void		and(t_data *data, t_carriage **carriage, int32_t pos);
+void		or(t_data *data, t_carriage **carriage, int32_t pos);
+void		xor(t_data *data, t_carriage **carriage, int32_t pos);
+void		zjmp(t_data *data, t_carriage **carriage, int32_t pos);
+void		ldi(t_data *data, t_carriage **carriage, int32_t pos);
+void		sti(t_data *data, t_carriage **carriage, int32_t pos);
+void		fork_(t_data *data, t_carriage **carriage, int32_t pos);
+void		lld(t_data *data, t_carriage **carriage, int32_t pos);
+void		lldi(t_data *data, t_carriage **carriage, int32_t pos);
+void		lfork(t_data *data, t_carriage **carriage, int32_t pos);
+void		aff(t_data *data, t_carriage **carriage, int32_t pos);
 
 #endif

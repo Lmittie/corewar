@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 18:12:59 by lmittie           #+#    #+#             */
-/*   Updated: 2020/10/22 18:12:59 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/11/29 18:44:10 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ void	parse_arguments(int ac, const char **av, t_data *data)
 				switch_champions(&arg_it, n, ++i);
 			data->players_num++;
 		}
+		else if (!(ft_strcmp("-a", av[i])))
+			data->a_flag = 1;
 		else
 		{
 			add_arg_it(&arg_it, i);

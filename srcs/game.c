@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
-/*   Updated: 2020/11/28 19:52:08 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/11/30 21:04:16 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,14 @@ void	print_arena_state(uint8_t (*arena)[MEM_SIZE])
 		ft_printf("%s%#.4x :", i ? "\n" : "0x", i);
 		j = 0;
 		while (j < 64)
-		{
 			ft_printf(" %.2x", (*arena)[i + j++]);
-		}
 		i += 64;
 	}
-//		ft_printf("%.2x ", data->arena[b++ % MEM_SIZE]);
 }
 
 void	set_op_code(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 {
+
 	(*carriage)->op_code = (*arena)[(*carriage)->curr_pos % MEM_SIZE];
 	if ((*carriage)->op_code > 0 && (*carriage)->op_code < 17)
 		(*carriage)->cycles_before = op_tab[(*carriage)->op_code - 1].cycles;
@@ -42,7 +40,7 @@ void	set_op_code(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 
 int		validate_op(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 {
-	if ((*carriage)->op_code > 16)
+	if ((*carriage)->op_code > 16 || (*carriage)->op_code == 0)
 	{
 		(*carriage)->curr_pos++;
 		return (0);
@@ -115,7 +113,9 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 					 &(*carriage)->bytes_step, (*carriage)->op_code);
 			i++;
 		}
-	}
+	} else
+		calc_one_arg_step(op_tab[(*carriage)->op_code - 1].args_type[0],
+						  &(*carriage)->bytes_step, (*carriage)->op_code);
 	if (wrong_args)
 	{
 		(*carriage)->curr_pos += (*carriage)->bytes_step;
@@ -126,13 +126,13 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 
 void	exec_op(t_data *data, t_carriage **carriage)
 {
-	size_t pos;
+	int32_t pos;
 
 	pos = (*carriage)->curr_pos;
 	pos += (op_tab[(*carriage)->op_code - 1].arg_type_code) ? 2 : 1;
 	op_tab[(*carriage)->op_code - 1].func(data, carriage, pos);
 	(*carriage)->curr_pos += (*carriage)->bytes_step;
-	(*carriage)->curr_pos %= MEM_SIZE;
+	(*carriage)->curr_pos = get_pos((*carriage)->curr_pos);
 }
 
 void	validate_and_exec(t_data *data, t_carriage **carriage)
@@ -141,6 +141,10 @@ void	validate_and_exec(t_data *data, t_carriage **carriage)
 		return ;
 	if (!validate_args(carriage, &data->arena))
 		return ;
+	ft_printf("op %s, cycle %d, pos = %d\n",
+		   op_tab[(*carriage)->op_code - 1].op_name,
+		   data->cycles,
+			  (*carriage)->curr_pos);
 	exec_op(data, carriage);
 }
 
@@ -159,11 +163,6 @@ void	carriage_check(t_data *data)
 			validate_and_exec(data, &it);
 		it = it->next;
 	}
-//	for (t_carriage *car = data->carriage_list; car != NULL; car = car->next)
-//	{
-//		ft_printf("%d - > ", car->uid);
-//	}
-//	ft_printf("\n");
 }
 
 void	greeting_message(uint8_t player_uid, const char *player_name)
