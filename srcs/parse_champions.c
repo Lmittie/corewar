@@ -154,7 +154,7 @@ void	introduce_champions(t_champ champs[MAX_PLAYERS], int players_num)
 	i = 0;
 	while (i < players_num)
 	{
-		ft_printf("* Player %u,  weighing %u bytes, \"%s\", (\"%s\") !\n",
+		ft_printf("* Player %u, weighing %u bytes, \"%s\" (\"%s\") !\n",
 			champs[i].uid,
 			champs[i].header.prog_size,
 			champs[i].header.prog_name,

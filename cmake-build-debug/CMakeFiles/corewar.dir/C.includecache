@@ -32,31 +32,7 @@ libc.h
 
 ../includes/op.h
 
-/Users/lmittie/Desktop/corewar/srcs/cycles_to_die_check.c
-corewar.h
-/Users/lmittie/Desktop/corewar/srcs/corewar.h
-
-/Users/lmittie/Desktop/corewar/srcs/game.c
-corewar.h
-/Users/lmittie/Desktop/corewar/srcs/corewar.h
-
-/Users/lmittie/Desktop/corewar/srcs/main.c
-corewar.h
-/Users/lmittie/Desktop/corewar/srcs/corewar.h
-
-/Users/lmittie/Desktop/corewar/srcs/op.c
-corewar.h
-/Users/lmittie/Desktop/corewar/srcs/corewar.h
-
 /Users/lmittie/Desktop/corewar/srcs/operations.c
-corewar.h
-/Users/lmittie/Desktop/corewar/srcs/corewar.h
-
-/Users/lmittie/Desktop/corewar/srcs/parse_arguments.c
-corewar.h
-/Users/lmittie/Desktop/corewar/srcs/corewar.h
-
-/Users/lmittie/Desktop/corewar/srcs/parse_champions.c
 corewar.h
 /Users/lmittie/Desktop/corewar/srcs/corewar.h
 
