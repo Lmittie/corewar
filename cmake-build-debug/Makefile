@@ -2735,6 +2735,87 @@ ft_printf/utoa_base_buff_ox.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/ft_printf/utoa_base_buff_ox.c.s
 .PHONY : ft_printf/utoa_base_buff_ox.c.s
 
+srcs/add_sub.o: srcs/add_sub.c.o
+
+.PHONY : srcs/add_sub.o
+
+# target to build an object file
+srcs/add_sub.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/add_sub.c.o
+.PHONY : srcs/add_sub.c.o
+
+srcs/add_sub.i: srcs/add_sub.c.i
+
+.PHONY : srcs/add_sub.i
+
+# target to preprocess a source file
+srcs/add_sub.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/add_sub.c.i
+.PHONY : srcs/add_sub.c.i
+
+srcs/add_sub.s: srcs/add_sub.c.s
+
+.PHONY : srcs/add_sub.s
+
+# target to generate assembly for a file
+srcs/add_sub.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/add_sub.c.s
+.PHONY : srcs/add_sub.c.s
+
+srcs/aff.o: srcs/aff.c.o
+
+.PHONY : srcs/aff.o
+
+# target to build an object file
+srcs/aff.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/aff.c.o
+.PHONY : srcs/aff.c.o
+
+srcs/aff.i: srcs/aff.c.i
+
+.PHONY : srcs/aff.i
+
+# target to preprocess a source file
+srcs/aff.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/aff.c.i
+.PHONY : srcs/aff.c.i
+
+srcs/aff.s: srcs/aff.c.s
+
+.PHONY : srcs/aff.s
+
+# target to generate assembly for a file
+srcs/aff.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/aff.c.s
+.PHONY : srcs/aff.c.s
+
+srcs/and_or_xor.o: srcs/and_or_xor.c.o
+
+.PHONY : srcs/and_or_xor.o
+
+# target to build an object file
+srcs/and_or_xor.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/and_or_xor.c.o
+.PHONY : srcs/and_or_xor.c.o
+
+srcs/and_or_xor.i: srcs/and_or_xor.c.i
+
+.PHONY : srcs/and_or_xor.i
+
+# target to preprocess a source file
+srcs/and_or_xor.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/and_or_xor.c.i
+.PHONY : srcs/and_or_xor.c.i
+
+srcs/and_or_xor.s: srcs/and_or_xor.c.s
+
+.PHONY : srcs/and_or_xor.s
+
+# target to generate assembly for a file
+srcs/and_or_xor.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/and_or_xor.c.s
+.PHONY : srcs/and_or_xor.c.s
+
 srcs/cycles_to_die_check.o: srcs/cycles_to_die_check.c.o
 
 .PHONY : srcs/cycles_to_die_check.o
@@ -2762,6 +2843,33 @@ srcs/cycles_to_die_check.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.s
 .PHONY : srcs/cycles_to_die_check.c.s
 
+srcs/fork.o: srcs/fork.c.o
+
+.PHONY : srcs/fork.o
+
+# target to build an object file
+srcs/fork.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/fork.c.o
+.PHONY : srcs/fork.c.o
+
+srcs/fork.i: srcs/fork.c.i
+
+.PHONY : srcs/fork.i
+
+# target to preprocess a source file
+srcs/fork.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/fork.c.i
+.PHONY : srcs/fork.c.i
+
+srcs/fork.s: srcs/fork.c.s
+
+.PHONY : srcs/fork.s
+
+# target to generate assembly for a file
+srcs/fork.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/fork.c.s
+.PHONY : srcs/fork.c.s
+
 srcs/game.o: srcs/game.c.o
 
 .PHONY : srcs/game.o
@@ -2788,6 +2896,87 @@ srcs/game.s: srcs/game.c.s
 srcs/game.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/game.c.s
 .PHONY : srcs/game.c.s
+
+srcs/handle_value.o: srcs/handle_value.c.o
+
+.PHONY : srcs/handle_value.o
+
+# target to build an object file
+srcs/handle_value.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/handle_value.c.o
+.PHONY : srcs/handle_value.c.o
+
+srcs/handle_value.i: srcs/handle_value.c.i
+
+.PHONY : srcs/handle_value.i
+
+# target to preprocess a source file
+srcs/handle_value.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/handle_value.c.i
+.PHONY : srcs/handle_value.c.i
+
+srcs/handle_value.s: srcs/handle_value.c.s
+
+.PHONY : srcs/handle_value.s
+
+# target to generate assembly for a file
+srcs/handle_value.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/handle_value.c.s
+.PHONY : srcs/handle_value.c.s
+
+srcs/ld.o: srcs/ld.c.o
+
+.PHONY : srcs/ld.o
+
+# target to build an object file
+srcs/ld.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/ld.c.o
+.PHONY : srcs/ld.c.o
+
+srcs/ld.i: srcs/ld.c.i
+
+.PHONY : srcs/ld.i
+
+# target to preprocess a source file
+srcs/ld.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/ld.c.i
+.PHONY : srcs/ld.c.i
+
+srcs/ld.s: srcs/ld.c.s
+
+.PHONY : srcs/ld.s
+
+# target to generate assembly for a file
+srcs/ld.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/ld.c.s
+.PHONY : srcs/ld.c.s
+
+srcs/live.o: srcs/live.c.o
+
+.PHONY : srcs/live.o
+
+# target to build an object file
+srcs/live.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/live.c.o
+.PHONY : srcs/live.c.o
+
+srcs/live.i: srcs/live.c.i
+
+.PHONY : srcs/live.i
+
+# target to preprocess a source file
+srcs/live.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/live.c.i
+.PHONY : srcs/live.c.i
+
+srcs/live.s: srcs/live.c.s
+
+.PHONY : srcs/live.s
+
+# target to generate assembly for a file
+srcs/live.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/live.c.s
+.PHONY : srcs/live.c.s
 
 srcs/main.o: srcs/main.c.o
 
@@ -2923,6 +3112,60 @@ srcs/parse_champions.s: srcs/parse_champions.c.s
 srcs/parse_champions.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/parse_champions.c.s
 .PHONY : srcs/parse_champions.c.s
+
+srcs/st.o: srcs/st.c.o
+
+.PHONY : srcs/st.o
+
+# target to build an object file
+srcs/st.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/st.c.o
+.PHONY : srcs/st.c.o
+
+srcs/st.i: srcs/st.c.i
+
+.PHONY : srcs/st.i
+
+# target to preprocess a source file
+srcs/st.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/st.c.i
+.PHONY : srcs/st.c.i
+
+srcs/st.s: srcs/st.c.s
+
+.PHONY : srcs/st.s
+
+# target to generate assembly for a file
+srcs/st.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/st.c.s
+.PHONY : srcs/st.c.s
+
+srcs/zjmp.o: srcs/zjmp.c.o
+
+.PHONY : srcs/zjmp.o
+
+# target to build an object file
+srcs/zjmp.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/zjmp.c.o
+.PHONY : srcs/zjmp.c.o
+
+srcs/zjmp.i: srcs/zjmp.c.i
+
+.PHONY : srcs/zjmp.i
+
+# target to preprocess a source file
+srcs/zjmp.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/zjmp.c.i
+.PHONY : srcs/zjmp.c.i
+
+srcs/zjmp.s: srcs/zjmp.c.s
+
+.PHONY : srcs/zjmp.s
+
+# target to generate assembly for a file
+srcs/zjmp.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/zjmp.c.s
+.PHONY : srcs/zjmp.c.s
 
 # Help Target
 help:
@@ -3221,12 +3464,33 @@ help:
 	@echo "... ft_printf/utoa_base_buff_ox.o"
 	@echo "... ft_printf/utoa_base_buff_ox.i"
 	@echo "... ft_printf/utoa_base_buff_ox.s"
+	@echo "... srcs/add_sub.o"
+	@echo "... srcs/add_sub.i"
+	@echo "... srcs/add_sub.s"
+	@echo "... srcs/aff.o"
+	@echo "... srcs/aff.i"
+	@echo "... srcs/aff.s"
+	@echo "... srcs/and_or_xor.o"
+	@echo "... srcs/and_or_xor.i"
+	@echo "... srcs/and_or_xor.s"
 	@echo "... srcs/cycles_to_die_check.o"
 	@echo "... srcs/cycles_to_die_check.i"
 	@echo "... srcs/cycles_to_die_check.s"
+	@echo "... srcs/fork.o"
+	@echo "... srcs/fork.i"
+	@echo "... srcs/fork.s"
 	@echo "... srcs/game.o"
 	@echo "... srcs/game.i"
 	@echo "... srcs/game.s"
+	@echo "... srcs/handle_value.o"
+	@echo "... srcs/handle_value.i"
+	@echo "... srcs/handle_value.s"
+	@echo "... srcs/ld.o"
+	@echo "... srcs/ld.i"
+	@echo "... srcs/ld.s"
+	@echo "... srcs/live.o"
+	@echo "... srcs/live.i"
+	@echo "... srcs/live.s"
 	@echo "... srcs/main.o"
 	@echo "... srcs/main.i"
 	@echo "... srcs/main.s"
@@ -3242,6 +3506,12 @@ help:
 	@echo "... srcs/parse_champions.o"
 	@echo "... srcs/parse_champions.i"
 	@echo "... srcs/parse_champions.s"
+	@echo "... srcs/st.o"
+	@echo "... srcs/st.i"
+	@echo "... srcs/st.s"
+	@echo "... srcs/zjmp.o"
+	@echo "... srcs/zjmp.i"
+	@echo "... srcs/zjmp.s"
 .PHONY : help
 
 

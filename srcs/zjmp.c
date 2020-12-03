@@ -1,12 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   zjmp.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/27 18:05:33 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/02 17:12:59 by lmittie          ###   ########.fr       */
+/*   Created: 2020/12/02 17:05:57 by lmittie           #+#    #+#             */
+/*   Updated: 2020/12/02 20:42:49 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "corewar.h"
+
+void	zjmp(t_data *data, t_carriage **carriage, int32_t pos)
+{
+	int32_t arg;
+
+	arg = get_value(IND_SIZE, &data->arena, pos);
+	if ((*carriage)->carry)
+		(*carriage)->curr_pos += arg % IDX_MOD;
+	ft_printf(" |jump = %d (%x), carry = %d, curr pos = %d| \n",
+		   arg, arg, (*carriage)->carry, (*carriage)->curr_pos);
+}

@@ -100,13 +100,22 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/lmittie/Desktop/corewar/ft_printf/long_arithmetics.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/ft_printf/long_arithmetics.c.o"
   "/Users/lmittie/Desktop/corewar/ft_printf/printing_floats.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/ft_printf/printing_floats.c.o"
   "/Users/lmittie/Desktop/corewar/ft_printf/utoa_base_buff_ox.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/ft_printf/utoa_base_buff_ox.c.o"
+  "/Users/lmittie/Desktop/corewar/srcs/add_sub.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/add_sub.c.o"
+  "/Users/lmittie/Desktop/corewar/srcs/aff.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/aff.c.o"
+  "/Users/lmittie/Desktop/corewar/srcs/and_or_xor.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/and_or_xor.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/cycles_to_die_check.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.o"
+  "/Users/lmittie/Desktop/corewar/srcs/fork.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/fork.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/game.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/game.c.o"
+  "/Users/lmittie/Desktop/corewar/srcs/handle_value.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/handle_value.c.o"
+  "/Users/lmittie/Desktop/corewar/srcs/ld.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/ld.c.o"
+  "/Users/lmittie/Desktop/corewar/srcs/live.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/live.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/main.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/main.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/op.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/op.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/operations.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/operations.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/parse_arguments.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/parse_arguments.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/parse_champions.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/parse_champions.c.o"
+  "/Users/lmittie/Desktop/corewar/srcs/st.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/st.c.o"
+  "/Users/lmittie/Desktop/corewar/srcs/zjmp.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/zjmp.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

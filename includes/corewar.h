@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/11/30 18:45:10 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/02 17:11:20 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,23 @@ typedef struct	s_op
 	void		(*func)(t_data *, t_carriage **, int32_t);
 }				t_op;
 
+extern t_op op_tab[17];
+
+int32_t	get_value(size_t size, const uint8_t (*arena)[MEM_SIZE], int32_t pos);
+int32_t	get_arg(uint8_t arg_type,  int32_t *pos, const uint8_t (*arena)[MEM_SIZE]);
+void	place_value(int32_t arg, int32_t pos, size_t size, uint8_t (*arena)[MEM_SIZE]);
+
 int32_t	get_pos(int32_t pos);
+
 void	parse_arguments(int ac, const char **av, t_data *data);
 void	parse_champions(t_args (*champs)[MAX_PLAYERS], t_data *data, const char **av);
+
 void	game(t_data *data);
 void	ctd_check(t_data *data);
+
 void	init_carriage(t_carriage **clist, uint8_t uid, size_t pos);
+
+void	print_arena_state(uint8_t (*arena)[MEM_SIZE]);
 
 void		live(t_data *data, t_carriage **carriage, int32_t pos);
 void		ld(t_data *data, t_carriage **carriage, int32_t pos);
