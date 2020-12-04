@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:05:57 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/02 20:42:49 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/04 20:11:41 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void	zjmp(t_data *data, t_carriage **carriage, int32_t pos)
 
 	arg = get_value(IND_SIZE, &data->arena, pos);
 	if ((*carriage)->carry)
+	{
 		(*carriage)->curr_pos += arg % IDX_MOD;
+		(*carriage)->curr_pos -= (*carriage)->bytes_step;
+	}
 	ft_printf(" |jump = %d (%x), carry = %d, curr pos = %d| \n",
 		   arg, arg, (*carriage)->carry, (*carriage)->curr_pos);
 }

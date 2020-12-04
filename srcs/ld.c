@@ -20,7 +20,6 @@ void	ld(t_data *data, t_carriage **carriage, int32_t pos)
 	arg = get_arg((*carriage)->args[0], &pos, &data->arena);
 	r_inx = data->arena[get_pos(pos)];
 	if ((*carriage)->args[0] == T_IND) {
-		ft_printf("here, arg = %d\n", arg);
 		arg = get_value(DIR_SIZE, &data->arena,
 						(*carriage)->curr_pos + arg % IDX_MOD);
 	}

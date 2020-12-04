@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/01 18:38:34 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/04 20:08:13 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,21 @@ uint8_t	one_argument_type(uint8_t arg_type, uint8_t shift)
 int validate_register(uint8_t reg_num)
 {
 	if (reg_num == 0 || reg_num > REG_NUMBER)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 int validate_arg(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE], int i)
 {
 	if (!((*carriage)->args[i] & op_tab[(*carriage)->op_code - 1].args_type[i]))
-		return (0);
+		return (1);
 	if ((*carriage)->args[i] == T_REG &&
-			!validate_register(
+			validate_register(
 					(*arena)[((*carriage)->curr_pos
 					+ (*carriage)->bytes_step) % MEM_SIZE]
 					))
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 void	calc_one_arg_step(uint8_t arg_type, uint32_t *bytes_step, uint8_t op_code)
@@ -107,15 +107,18 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 		while (i < op_tab[(*carriage)->op_code - 1].args_num) // go forward args
 		{
 			(*carriage)->args[i] = one_argument_type(arg_type, 6 - i * 2);
-			if (!validate_arg(carriage, arena, i))
-				wrong_args = 1;
+			wrong_args = validate_arg(carriage, arena, i);
 			calc_one_arg_step((*carriage)->args[i],
 					 &(*carriage)->bytes_step, (*carriage)->op_code);
 			i++;
 		}
 	} else
+	{
+		if (op_tab[(*carriage)->op_code - 1].args_type[0] & T_REG)
+			wrong_args = validate_register((*arena)[((*carriage)->curr_pos + 1) % MEM_SIZE]);
 		calc_one_arg_step(op_tab[(*carriage)->op_code - 1].args_type[0],
 						  &(*carriage)->bytes_step, (*carriage)->op_code);
+	}
 	if (wrong_args)
 	{
 		(*carriage)->curr_pos += (*carriage)->bytes_step;
@@ -188,7 +191,6 @@ void	game(t_data *data)
 	while (1)
 	{
 		data->cycles++;
-//		ft_printf("%d\n", data->cycles);
 		if (data->cycles == data->dump_cycles)
 		{
 			print_arena_state(&data->arena);
