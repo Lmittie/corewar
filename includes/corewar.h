@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/05 15:05:51 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/05 16:56:30 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct		s_carriage
 	uint16_t			uid;
 	uint8_t				carry;
 	uint8_t				op_code;
-	uint32_t			last_live_cycle;
+	int32_t				last_live_cycle;
 	uint16_t			cycles_before;
 	int32_t				curr_pos;
 	uint32_t			bytes_step;
@@ -51,9 +51,9 @@ typedef struct		s_data
 	uint8_t				arena[MEM_SIZE];
 	t_carriage			*carriage_list;
 	uint8_t				winner_id;
-	uint32_t			cycles;
+	int32_t				cycles;
 	uint32_t			live_op_counter;
-	uint32_t			cycles_to_die;
+	int32_t				cycles_to_die;
 	uint32_t			checks_counter;
 	uint32_t			dump_cycles;
 	uint8_t				a_flag;

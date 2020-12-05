@@ -10,6 +10,5 @@
     <mapping directory="$PROJECT_DIR$/champs/championships/2018/nolivier" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/champs/championships/2018/sboulet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/champs/championships/2018/sgalasso3" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/ft_printf" vcs="Git" />
   </component>
 </project>

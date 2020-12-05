@@ -28,14 +28,15 @@ void	fork_(t_data *data, t_carriage **carriage, int32_t pos)
 	data->carriage_list->carry = carriage_copy->carry;
 	data->carriage_list->last_live_cycle = carriage_copy->last_live_cycle;
 
-	for (int i = 0; i < REG_NUMBER; ++i) {
-		ft_printf("%d = %d ", i + 1, data->carriage_list->registers[i]);
-	}
-	ft_printf("\n");
-	for (int i = 0; i < REG_NUMBER; ++i) {
-		ft_printf("%d = %d ", i + 1, carriage_copy->registers[i]);
-	}
-	ft_printf("\ncurr_pos = %d\n", data->carriage_list->curr_pos);
+//	for (int i = 0; i < REG_NUMBER; ++i) {
+//		ft_printf("%d = %d ", i + 1, data->carriage_list->registers[i]);
+//	}
+//	ft_printf("\n");
+//	for (int i = 0; i < REG_NUMBER; ++i) {
+//		ft_printf("%d = %d ", i + 1, carriage_copy->registers[i]);
+//	}
+//	ft_printf("\ncurr_pos = %d\n", data->carriage_list->curr_pos);
+	ft_printf("%d (%d)\n", arg, data->carriage_list->curr_pos);
 }
 
 void	lfork(t_data *data, t_carriage **carriage, int32_t pos)
@@ -54,12 +55,13 @@ void	lfork(t_data *data, t_carriage **carriage, int32_t pos)
 	data->carriage_list->carry = carriage_copy->carry;
 	data->carriage_list->last_live_cycle = carriage_copy->last_live_cycle;
 
-	for (int i = 0; i < REG_NUMBER; ++i) {
-		ft_printf("%d = %d ", i + 1, data->carriage_list->registers[i]);
-	}
-	ft_printf("\n");
-	for (int i = 0; i < REG_NUMBER; ++i) {
-		ft_printf("%d = %d ", i + 1, carriage_copy->registers[i]);
-	}
-	ft_printf("\ncurr_pos = %d\n", data->carriage_list->curr_pos);
+//	for (int i = 0; i < REG_NUMBER; ++i) {
+//		ft_printf("%d = %d ", i + 1, data->carriage_list->registers[i]);
+//	}
+//	ft_printf("\n");
+//	for (int i = 0; i < REG_NUMBER; ++i) {
+//		ft_printf("%d = %d ", i + 1, carriage_copy->registers[i]);
+//	}
+//	ft_printf("\ncurr_pos = %d\n", data->carriage_list->curr_pos);
+	ft_printf("%d (%d)\n", arg, data->carriage_list->curr_pos);
 }

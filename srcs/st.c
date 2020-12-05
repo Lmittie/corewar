@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:08 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/03 18:14:20 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/05 19:58:37 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,19 @@ void	st(t_data *data, t_carriage **carriage, int32_t pos)
 					(*carriage)->curr_pos + r_inx2 % IDX_MOD,
 					REG_SIZE,
 					&data->arena);
-
 	if ((*carriage)->args[1] == T_REG)
-		ft_printf("r inx1  = %d (%x), r inx2 = %d (%x), r[r2] = %d (%x)\n",
-			r_inx1, r_inx1, r_inx2, r_inx2, (*carriage)->registers[r_inx2 - 1], (*carriage)->registers[r_inx2 - 1]);
-	else if ((*carriage)->args[1] == T_IND) {
-		ft_printf("r inx1  = %d (%x), r inx2 = %d (%x), ", r_inx1, r_inx1, r_inx2, r_inx2);
-		for (int i = (*carriage)->curr_pos + r_inx2 % IDX_MOD;
-		i < (*carriage)->curr_pos + r_inx2 % IDX_MOD + REG_SIZE; i++)
-			ft_printf("%x", data->arena[i % MEM_SIZE]);
-	}
-	ft_printf("\n");
+		r_inx2 = (*carriage)->registers[r_inx2 - 1];
+	ft_printf("r%d %d\n", r_inx1, r_inx2);
+//	if ((*carriage)->args[1] == T_REG)
+//		ft_printf("r inx1  = %d (%x), r inx2 = %d (%x), r[r2] = %d (%x)\n",
+//			r_inx1, r_inx1, r_inx2, r_inx2, (*carriage)->registers[r_inx2 - 1], (*carriage)->registers[r_inx2 - 1]);
+//	else if ((*carriage)->args[1] == T_IND) {
+//		ft_printf("r inx1  = %d (%x), r inx2 = %d (%x), ", r_inx1, r_inx1, r_inx2, r_inx2);
+//		for (int i = (*carriage)->curr_pos + r_inx2 % IDX_MOD;
+//		i < (*carriage)->curr_pos + r_inx2 % IDX_MOD + REG_SIZE; i++)
+//			ft_printf("%x", data->arena[i % MEM_SIZE]);
+//	}
+//	ft_printf("\n");
 }
 
 void	sti(t_data *data, t_carriage **carriage, int32_t pos)
@@ -63,11 +65,14 @@ void	sti(t_data *data, t_carriage **carriage, int32_t pos)
 				REG_SIZE,
 				&data->arena);
 
-	ft_printf("arg1 = %d (%x), arg2 = %d (%x), arg3 = %d (%x), ",
-		   arg1, arg1, arg2, arg2, arg3, arg3);
-	for (int i = (*carriage)->curr_pos + (arg2 + arg3) % IDX_MOD;
-		 i < (*carriage)->curr_pos + (arg2 + arg3) % IDX_MOD + REG_SIZE; ++i) {
-		ft_printf("%x", data->arena[i % MEM_SIZE]);
-	}
-	ft_printf("\n");
+	ft_printf("r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n",
+			  data->arena[get_pos((*carriage)->curr_pos + 2)],
+			  arg2, arg3, arg2, arg3, arg2 + arg3, (*carriage)->curr_pos + (arg2 + arg3) % IDX_MOD);
+//	ft_printf("arg1 = %d (%x), arg2 = %d (%x), arg3 = %d (%x), ",
+//		   arg1, arg1, arg2, arg2, arg3, arg3);
+//	for (int i = (*carriage)->curr_pos + (arg2 + arg3) % IDX_MOD;
+//		 i < (*carriage)->curr_pos + (arg2 + arg3) % IDX_MOD + REG_SIZE; ++i) {
+//		ft_printf("%x", data->arena[i % MEM_SIZE]);
+//	}
+//	ft_printf("\n");
 }

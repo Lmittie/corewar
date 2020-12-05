@@ -22,6 +22,10 @@ void	zjmp(t_data *data, t_carriage **carriage, int32_t pos)
 		(*carriage)->curr_pos += arg % IDX_MOD;
 		(*carriage)->curr_pos -= (*carriage)->bytes_step;
 	}
-	ft_printf(" |jump = %d (%x), carry = %d, curr pos = %d| \n",
-		   arg, arg, (*carriage)->carry, (*carriage)->curr_pos);
+//	ft_printf(" |jump = %d (%x), carry = %d, curr pos = %d| \n",
+//		   arg, arg, (*carriage)->carry, (*carriage)->curr_pos);
+	if ((*carriage)->carry)
+		ft_printf("%d OK\n", arg);
+	else
+		ft_printf("%d FAILED\n", arg);
 }

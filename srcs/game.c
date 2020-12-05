@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/05 15:47:24 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/05 21:28:30 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-
-extern t_op    op_tab[17];
 
 void	print_arena_state(uint8_t (*arena)[MEM_SIZE])
 {
@@ -25,7 +23,7 @@ void	print_arena_state(uint8_t (*arena)[MEM_SIZE])
 		ft_printf("%s%#.4x :", i ? "\n" : "0x", i);
 		j = 0;
 		while (j < 64)
-	 		ft_printf(" %.2x", (*arena)[i + j++]);
+			ft_printf(" %.2x", (*arena)[i + j++]);
 		i += 64;
 	}
 }
@@ -144,10 +142,13 @@ void	validate_and_exec(t_data *data, t_carriage **carriage)
 		return ;
 	if (!validate_args(carriage, &data->arena))
 		return ;
-	ft_printf("op %s, cycle %d, pos = %d\n",
-		   op_tab[(*carriage)->op_code - 1].op_name,
-		   data->cycles,
-			  (*carriage)->curr_pos);
+//	ft_printf("op %s, cycle %d, pos = %d  |  ",
+//		   op_tab[(*carriage)->op_code - 1].op_name,
+//		   data->cycles,
+//			  (*carriage)->curr_pos);
+	ft_printf("P  %3d | %s ",
+		   (*carriage)->uid, op_tab[(*carriage)->op_code - 1].op_name, data->cycles,
+			  (*carriage)->curr_pos, (*carriage)->curr_pos + (*carriage)->bytes_step);
 	exec_op(data, carriage);
 }
 
@@ -177,34 +178,28 @@ void	greeting_message(uint8_t player_uid, const char *player_name)
 
 void	game(t_data *data)
 {
+	int32_t cycles_to_die;
+
+	cycles_to_die = 0;
 	data->winner_id = data->champs[data->players_num - 1].uid;
-//	int s = data->champs[0].header.prog_size;
-//	int b = 0;
-//	while (b < s)
-//		ft_printf("%.2x ", data->arena[b++ % MEM_SIZE]);
-//	ft_printf("\n");
-//	s = data->champs[1].header.prog_size + (MEM_SIZE / data->players_num);
-//	b = (MEM_SIZE / data->players_num);
-//	while (b < s)
-//		ft_printf("%.2x ", data->arena[b++ % MEM_SIZE]);
-//	ft_printf("\n");
 	while (1)
 	{
 		data->cycles++;
+		ft_printf("It is now cycle %d\n", data->cycles);
 		if (data->cycles == data->dump_cycles)
 		{
 			print_arena_state(&data->arena);
 			return ;
 		}
 		carriage_check(data);
-		if (data->cycles % data->cycles_to_die == 0)
+		if (++cycles_to_die == data->cycles_to_die || data->cycles_to_die < 0)
 		{
 			ctd_check(data);
+			cycles_to_die = 0;
 			data->live_op_counter = 0;
 		}
 		if (data->carriage_list == NULL)
 			break ;
-//		visual(data);
 	}
 	greeting_message(data->champs[data->winner_id - 1].uid,
 					 data->champs[data->winner_id - 1].header.prog_name);
