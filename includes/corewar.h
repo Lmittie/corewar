@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   corewar.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/04 18:09:07 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/05 15:05:51 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 # define COREWAR_H
 
-# include "libft.h"
-# include "ft_printf.h"
+# include "../ft_printf/ft_printf.h"
 # include "op.h"
 # include <libc.h>
 
@@ -107,5 +106,6 @@ void		lld(t_data *data, t_carriage **carriage, int32_t pos);
 void		lldi(t_data *data, t_carriage **carriage, int32_t pos);
 void		lfork(t_data *data, t_carriage **carriage, int32_t pos);
 void		aff(t_data *data, t_carriage **carriage, int32_t pos);
+void		visual(t_data *data);
 
 #endif

@@ -6,5 +6,5 @@ C_FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacO
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/lmittie/Desktop/corewar/ft_printf -I/Users/lmittie/Desktop/corewar/ft_printf/libft -I/Users/lmittie/Desktop/corewar/includes -I/Users/lmittie/Desktop/corewar/srcs 
+C_INCLUDES = -I/Users/acarlett/Desktop/corewar_lmittie/ft_printf -I/Users/acarlett/Desktop/corewar_lmittie/ft_printf/libft -I/Users/acarlett/Desktop/corewar_lmittie/includes -I/Users/acarlett/Desktop/corewar_lmittie/srcs 
 

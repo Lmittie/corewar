@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/04 20:08:13 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/05 15:47:24 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_arena_state(uint8_t (*arena)[MEM_SIZE])
 		ft_printf("%s%#.4x :", i ? "\n" : "0x", i);
 		j = 0;
 		while (j < 64)
-			ft_printf(" %.2x", (*arena)[i + j++]);
+	 		ft_printf(" %.2x", (*arena)[i + j++]);
 		i += 64;
 	}
 }
@@ -204,6 +204,7 @@ void	game(t_data *data)
 		}
 		if (data->carriage_list == NULL)
 			break ;
+//		visual(data);
 	}
 	greeting_message(data->champs[data->winner_id - 1].uid,
 					 data->champs[data->winner_id - 1].header.prog_name);
