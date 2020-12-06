@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:08 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/05 19:58:37 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/06 19:54:43 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void	st(t_data *data, t_carriage **carriage, int32_t pos)
 					&data->arena);
 	if ((*carriage)->args[1] == T_REG)
 		r_inx2 = (*carriage)->registers[r_inx2 - 1];
+#ifdef TEST
 	ft_printf("r%d %d\n", r_inx1, r_inx2);
+
+#endif
 //	if ((*carriage)->args[1] == T_REG)
 //		ft_printf("r inx1  = %d (%x), r inx2 = %d (%x), r[r2] = %d (%x)\n",
 //			r_inx1, r_inx1, r_inx2, r_inx2, (*carriage)->registers[r_inx2 - 1], (*carriage)->registers[r_inx2 - 1]);
@@ -45,7 +48,7 @@ void	sti(t_data *data, t_carriage **carriage, int32_t pos)
 {
 	int32_t	arg1;
 	int32_t	arg2;
-	int16_t	arg3;
+	int32_t	arg3;
 	uint8_t type;
 
 	arg1 = (*carriage)->registers[data->arena[get_pos(pos++)] - 1];
@@ -61,13 +64,16 @@ void	sti(t_data *data, t_carriage **carriage, int32_t pos)
 	if ((*carriage)->args[2] == T_REG)
 		arg3 = (*carriage)->registers[arg3 - 1];
 	place_value(arg1,
-				(*carriage)->curr_pos + (arg2 + arg3) % IDX_MOD,
+				(*carriage)->curr_pos % MEM_SIZE + (arg2 + arg3) % IDX_MOD,
 				REG_SIZE,
 				&data->arena);
 
+#ifdef TEST
 	ft_printf("r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n",
 			  data->arena[get_pos((*carriage)->curr_pos + 2)],
-			  arg2, arg3, arg2, arg3, arg2 + arg3, (*carriage)->curr_pos + (arg2 + arg3) % IDX_MOD);
+			  arg2, arg3, arg2, arg3, arg2 + arg3, (*carriage)->curr_pos % MEM_SIZE + (arg2 + arg3) % IDX_MOD);
+
+#endif
 //	ft_printf("arg1 = %d (%x), arg2 = %d (%x), arg3 = %d (%x), ",
 //		   arg1, arg1, arg2, arg2, arg3, arg3);
 //	for (int i = (*carriage)->curr_pos + (arg2 + arg3) % IDX_MOD;

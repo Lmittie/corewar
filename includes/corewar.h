@@ -6,13 +6,14 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/05 16:56:30 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/06 20:20:06 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COREWAR_H
 
 # define COREWAR_H
+//# define TEST
 
 # include "../ft_printf/ft_printf.h"
 # include "op.h"
@@ -73,6 +74,8 @@ typedef struct	s_op
 }				t_op;
 
 extern t_op op_tab[17];
+
+int cicle=0;
 
 int32_t	get_value(size_t size, const uint8_t (*arena)[MEM_SIZE], int32_t pos);
 int32_t	get_arg(uint8_t arg_type,  int32_t *pos, const uint8_t (*arena)[MEM_SIZE]);

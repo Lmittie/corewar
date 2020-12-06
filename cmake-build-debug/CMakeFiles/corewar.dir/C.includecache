@@ -34,10 +34,6 @@ libc.h
 corewar.h
 /Users/lmittie/Desktop/corewar/srcs/corewar.h
 
-/Users/lmittie/Desktop/corewar/srcs/aff.c
-corewar.h
-/Users/lmittie/Desktop/corewar/srcs/corewar.h
-
 /Users/lmittie/Desktop/corewar/srcs/and_or_xor.c
 corewar.h
 /Users/lmittie/Desktop/corewar/srcs/corewar.h
@@ -63,22 +59,6 @@ corewar.h
 /Users/lmittie/Desktop/corewar/srcs/corewar.h
 
 /Users/lmittie/Desktop/corewar/srcs/live.c
-corewar.h
-/Users/lmittie/Desktop/corewar/srcs/corewar.h
-
-/Users/lmittie/Desktop/corewar/srcs/main.c
-corewar.h
-/Users/lmittie/Desktop/corewar/srcs/corewar.h
-
-/Users/lmittie/Desktop/corewar/srcs/op.c
-corewar.h
-/Users/lmittie/Desktop/corewar/srcs/corewar.h
-
-/Users/lmittie/Desktop/corewar/srcs/parse_arguments.c
-corewar.h
-/Users/lmittie/Desktop/corewar/srcs/corewar.h
-
-/Users/lmittie/Desktop/corewar/srcs/parse_champions.c
 corewar.h
 /Users/lmittie/Desktop/corewar/srcs/corewar.h
 

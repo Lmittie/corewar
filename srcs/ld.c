@@ -28,7 +28,10 @@ void	ld(t_data *data, t_carriage **carriage, int32_t pos)
 
 //	ft_printf("arg = %d (%x), reg = %d (%x), r_val = %d, carry %d\n",
 //			  arg, arg, r_inx, r_inx, (*carriage)->registers[r_inx - 1], (*carriage)->carry);
+#ifdef TEST
 	ft_printf("%d r%d\n", arg, r_inx);
+
+#endif
 }
 
 void	ldi(t_data *data, t_carriage **carriage, int32_t pos)
@@ -61,8 +64,11 @@ void	ldi(t_data *data, t_carriage **carriage, int32_t pos)
 //	ft_printf("arg1 = %d (%x), arg2 = %d (%x), r = %d (%x)\n",
 //		   arg1, arg1, arg2, arg2, (*carriage)->registers[r_inx3 - 1],
 //			  (*carriage)->registers[r_inx3 - 1]);
+#ifdef TEST
 	ft_printf("%d %d r%d\n       | -> load from %d + %d = %d (with pc and mod %d)\n",
 		   arg1, arg2, r_inx3, arg1, arg2, arg1 + arg2, (*carriage)->curr_pos + (arg1 + arg2) % IDX_MOD);
+
+#endif
 }
 
 void	lld(t_data *data, t_carriage **carriage, int32_t pos)

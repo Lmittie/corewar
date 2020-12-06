@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/05 21:28:30 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/06 20:15:00 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	print_arena_state(uint8_t (*arena)[MEM_SIZE])
 	i = 0;
 	while (i < MEM_SIZE)
 	{
-		ft_printf("%s%#.4x :", i ? "\n" : "0x", i);
+		ft_printf("%s%#.4x : ", i ? "\n" : "0x", i);
 		j = 0;
 		while (j < 64)
-			ft_printf(" %.2x", (*arena)[i + j++]);
+			ft_printf("%.2x ", (*arena)[i + j++]);
 		i += 64;
 	}
 }
@@ -59,19 +59,19 @@ uint8_t	one_argument_type(uint8_t arg_type, uint8_t shift)
 	return (0);
 }
 
-int validate_register(uint8_t reg_num)
+int invalid_register(uint8_t reg_num)
 {
 	if (reg_num == 0 || reg_num > REG_NUMBER)
 		return (1);
 	return (0);
 }
 
-int validate_arg(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE], int i)
+int invalid_arg(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE], int i)
 {
 	if (!((*carriage)->args[i] & op_tab[(*carriage)->op_code - 1].args_type[i]))
 		return (1);
 	if ((*carriage)->args[i] == T_REG &&
-			validate_register(
+			invalid_register(
 					(*arena)[((*carriage)->curr_pos
 					+ (*carriage)->bytes_step) % MEM_SIZE]
 					))
@@ -105,7 +105,8 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 		while (i < op_tab[(*carriage)->op_code - 1].args_num) // go forward args
 		{
 			(*carriage)->args[i] = one_argument_type(arg_type, 6 - i * 2);
-			wrong_args = validate_arg(carriage, arena, i);
+//			if ((*carriage)->args[i] == T_REG && (*carriage).)
+			wrong_args += invalid_arg(carriage, arena, i);
 			calc_one_arg_step((*carriage)->args[i],
 					 &(*carriage)->bytes_step, (*carriage)->op_code);
 			i++;
@@ -113,7 +114,7 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 	} else
 	{
 		if (op_tab[(*carriage)->op_code - 1].args_type[0] & T_REG)
-			wrong_args = validate_register((*arena)[((*carriage)->curr_pos + 1) % MEM_SIZE]);
+			wrong_args += invalid_register((*arena)[((*carriage)->curr_pos + 1) % MEM_SIZE]);
 		calc_one_arg_step(op_tab[(*carriage)->op_code - 1].args_type[0],
 						  &(*carriage)->bytes_step, (*carriage)->op_code);
 	}
@@ -125,6 +126,12 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 	return (1);
 }
 
+void	print(t_carriage *carriage) {
+	for (int i = 0; i < 16; ++i) {
+
+	}
+}
+
 void	exec_op(t_data *data, t_carriage **carriage)
 {
 	int32_t pos;
@@ -134,6 +141,16 @@ void	exec_op(t_data *data, t_carriage **carriage)
 	op_tab[(*carriage)->op_code - 1].func(data, carriage, pos);
 	(*carriage)->curr_pos += (*carriage)->bytes_step;
 	(*carriage)->curr_pos = get_pos((*carriage)->curr_pos);
+
+#ifdef TEST
+
+	if (data->cycles == 8530) {
+
+		print(*carriage);
+	}
+
+#endif
+
 }
 
 void	validate_and_exec(t_data *data, t_carriage **carriage)
@@ -146,9 +163,12 @@ void	validate_and_exec(t_data *data, t_carriage **carriage)
 //		   op_tab[(*carriage)->op_code - 1].op_name,
 //		   data->cycles,
 //			  (*carriage)->curr_pos);
+#ifdef TEST
 	ft_printf("P  %3d | %s ",
 		   (*carriage)->uid, op_tab[(*carriage)->op_code - 1].op_name, data->cycles,
 			  (*carriage)->curr_pos, (*carriage)->curr_pos + (*carriage)->bytes_step);
+
+#endif
 	exec_op(data, carriage);
 }
 
@@ -185,7 +205,10 @@ void	game(t_data *data)
 	while (1)
 	{
 		data->cycles++;
+#ifdef TEST
 		ft_printf("It is now cycle %d\n", data->cycles);
+
+#endif
 		if (data->cycles == data->dump_cycles)
 		{
 			print_arena_state(&data->arena);

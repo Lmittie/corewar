@@ -29,7 +29,10 @@ void	add(t_data *data, t_carriage **carriage, int32_t pos)
 //		   r_inx2, (*carriage)->registers[r_inx2 - 1], (*carriage)->registers[r_inx2 - 1],
 //		   r_inx3, (*carriage)->registers[r_inx3 - 1], (*carriage)->registers[r_inx3 - 1],
 //			  (*carriage)->carry);
+#ifdef TEST
 	ft_printf("r%d r%d r%d\n", r_inx1, r_inx2, r_inx3);
+
+#endif
 }
 
 void	sub(t_data *data, t_carriage **carriage, int32_t pos)

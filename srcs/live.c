@@ -18,7 +18,10 @@ void		live(t_data *data, t_carriage **carriage, int32_t pos)
 
 	r = get_value(DIR_SIZE, &data->arena, pos);
 //	printf("arg = %d (dec), arg = %x (hec)\n", r, r);
+#ifdef TEST
 	ft_printf("%d\n", r);
+
+#endif
 	if (r >= -data->players_num && r < 0)
 	{
 		data->winner_id = r * -1;

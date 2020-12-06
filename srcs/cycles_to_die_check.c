@@ -49,7 +49,10 @@ void	ctd_check(t_data *data)
 	if (data->live_op_counter >= NBR_LIVE || data->checks_counter >= MAX_CHECKS)
 	{
 		data->cycles_to_die -= CYCLE_DELTA;
+#ifdef TEST
 		ft_printf("Cycle to die is now %d\n", data->cycles_to_die);
+
+#endif
 		data->checks_counter = 0;
 	}
 	data->live_op_counter = 0;

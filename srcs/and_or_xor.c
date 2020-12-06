@@ -39,7 +39,10 @@ void	and(t_data *data, t_carriage **carriage, int32_t pos)
 //			  (*carriage)->registers[r_inx3 - 1],
 //			  (*carriage)->registers[r_inx3 - 1],
 //			  (*carriage)->carry);
+#ifdef TEST
 	ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
+
+#endif
 }
 
 void	or(t_data *data, t_carriage **carriage, int32_t pos)
@@ -69,7 +72,10 @@ void	or(t_data *data, t_carriage **carriage, int32_t pos)
 //			  (*carriage)->registers[r_inx3 - 1],
 //			  (*carriage)->registers[r_inx3 - 1],
 //			  (*carriage)->carry);
+#ifdef TEST
 	ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
+
+#endif
 }
 
 void	xor(t_data *data, t_carriage **carriage, int32_t pos)
@@ -99,5 +105,8 @@ void	xor(t_data *data, t_carriage **carriage, int32_t pos)
 //			  (*carriage)->registers[r_inx3 - 1],
 //			  (*carriage)->registers[r_inx3 - 1],
 //			  (*carriage)->carry);
+#ifdef TEST
 	ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
+
+#endif
 }

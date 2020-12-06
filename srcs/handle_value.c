@@ -30,11 +30,6 @@ int32_t	get_value(size_t size, const uint8_t (*arena)[MEM_SIZE], int32_t pos)
 	{
 		arg <<= (int32_t)8;
 		arg |= (*arena)[get_pos(pos + i)];
-//		ft_printf("arg = %d, arena = %d, pos = %d, get_pos = %d\n",
-//			arg,
-//			(*arena)[get_pos(pos + i)],
-//			pos + i,
-//			get_pos(pos + i));
 		i++;
 	}
 	if (size == 2 && arg & 0x8000)
