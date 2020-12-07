@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/06 20:20:06 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/07 20:19:14 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct	s_op
 
 extern t_op op_tab[17];
 
-int cicle=0;
+// int cicle=0;
 
 int32_t	get_value(size_t size, const uint8_t (*arena)[MEM_SIZE], int32_t pos);
 int32_t	get_arg(uint8_t arg_type,  int32_t *pos, const uint8_t (*arena)[MEM_SIZE]);
@@ -109,6 +109,6 @@ void		lld(t_data *data, t_carriage **carriage, int32_t pos);
 void		lldi(t_data *data, t_carriage **carriage, int32_t pos);
 void		lfork(t_data *data, t_carriage **carriage, int32_t pos);
 void		aff(t_data *data, t_carriage **carriage, int32_t pos);
-void		visual(t_data *data);
+void		visual(t_data *data, int *button);
 
 #endif
