@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 23:30:54 by acarlett          #+#    #+#             */
-/*   Updated: 2020/12/08 19:51:15 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 20:52:51 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,14 @@ void		make_arena(t_data *data, WINDOW *arena_win, t_visual *visual)
 		
 		if (visual->carriage[i] != 0)
 		{
-			if (!code_size)
-				wattron(arena_win, COLOR_PAIR(count_champs * 10));
-			else
-				wattron(arena_win, COLOR_PAIR((count_champs + 1) * 10));
-			// wattron(arena_win, COLOR_PAIR(7));
+				wattron(arena_win, COLOR_PAIR((visual->carriage[i] * 10)));
 		}
 		wprintw(arena_win, "%02x", data->arena[i]);
 
 
 		if (visual->carriage[i] != 0)
 		{
-			if (!code_size)
-				wattroff(arena_win, COLOR_PAIR(count_champs * 10));
-			else
-				wattroff(arena_win, COLOR_PAIR((count_champs + 1) * 10));
-			// wattron(arena_win, COLOR_PAIR(7));
+				wattroff(arena_win, COLOR_PAIR((visual->carriage[i] * 10)));
 		}
 		
 		else if(i == (MEM_SIZE / data->players_num) * count_champs || code_size)
@@ -171,7 +163,7 @@ void		first_init(t_data *data, t_visual *visual)
 
 	while (tmp != NULL)
 	{
-		visual->carriage[tmp->curr_pos] = tmp->uid;
+		visual->carriage[tmp->curr_pos] = tmp->color_code;
 		tmp = tmp->next;
 	}
 }
@@ -196,7 +188,7 @@ void		visual(t_data *data, int *button)
 
 
 		refresh();
-		delay_output(100);
+		delay_output(25);
 		wrefresh(visual.wins.arena_win);
 		wrefresh(visual.wins.info_win);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_champions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 18:06:12 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/08 19:25:25 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 20:12:15 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void	init_carriage(t_carriage **clist, uint32_t uid, size_t pos)
 	ft_bzero(carriage, sizeof(t_carriage));
 
 	carriage->uid = uid;
+	carriage->color_code = 
 	carriage->registers[0] = (int16_t)uid * -1;
 	carriage->curr_pos = pos;
 	carriage->next = NULL;
@@ -152,15 +153,15 @@ void	introduce_champions(t_champ champs[MAX_PLAYERS], int players_num)
 {
 	int i;
 
-	ft_printf("Introducing contestants...\n");
+	// ft_printf("Introducing contestants...\n");
 	i = 0;
 	while (i < players_num)
 	{
-		ft_printf("* Player %u, weighing %u bytes, \"%s\" (\"%s\") !\n",
-			champs[i].uid,
-			champs[i].header.prog_size,
-			champs[i].header.prog_name,
-			champs[i].header.comment);
+		// ft_printf("* Player %u, weighing %u bytes, \"%s\" (\"%s\") !\n",
+			// champs[i].uid,
+			// champs[i].header.prog_size,
+			// champs[i].header.prog_name,
+			// champs[i].header.comment);
 		i++;
 	}
 }

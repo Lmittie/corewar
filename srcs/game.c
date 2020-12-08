@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/08 19:51:15 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 20:53:04 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	print_arena_state(uint8_t (*arena)[MEM_SIZE])
 	i = 0;
 	while (i < MEM_SIZE)
 	{
-		ft_printf("%s%#.4x : ", i ? "\n" : "0x", i);
+		// ft_printf("%s%#.4x : ", i ? "\n" : "0x", i);
 		j = 0;
-		while (j < 64)
-			ft_printf("%.2x ", (*arena)[i + j++]);
+		// while (j < 64)
+			// ft_printf("%.2x ", (*arena)[i + j++]);
 		i += 64;
 	}
 }
@@ -159,9 +159,9 @@ void	validate_and_exec(t_data *data, t_carriage **carriage)
 	if (!validate_args(carriage, &data->arena))
 		return ;
 #ifdef TEST
-	ft_printf("P %4u | %s ",
-		   (*carriage)->uid, op_tab[(*carriage)->op_code - 1].op_name, data->cycles,
-			  (*carriage)->curr_pos, (*carriage)->curr_pos + (*carriage)->bytes_step);
+	// ft_printf("P %4u | %s ",
+	// 	   (*carriage)->uid, op_tab[(*carriage)->op_code - 1].op_name, data->cycles,
+	// 		  (*carriage)->curr_pos, (*carriage)->curr_pos + (*carriage)->bytes_step);
 
 #endif
 	exec_op(data, carriage);
@@ -186,22 +186,25 @@ void	carriage_check(t_data *data)
 
 void	greeting_message(uint8_t player_uid, const char *player_name)
 {
-	ft_printf("Contestant %u, \"%s\", has won !\n",
-			  player_uid,
-			  player_name);
+	// ft_printf("Contestant %u, \"%s\", has won !\n",
+	// 		  player_uid,
+	// 		  player_name);
 }
 
 void	game(t_data *data)
 {
 	int32_t cycles_to_die;
+	int button;
 
+
+	button = '0';
 	cycles_to_die = 0;
 	data->winner_id = data->champs[data->players_num - 1].uid;
 	while (1)
 	{
 		data->cycles++;
 #ifdef TEST
-		ft_printf("It is now cycle %d\n", data->cycles);
+		// ft_printf("It is now cycle %d\n", data->cycles);
 
 #endif
 		if (data->cycles == data->dump_cycles)
@@ -218,6 +221,7 @@ void	game(t_data *data)
 		}
 		if (data->carriage_list == NULL)
 			break ;
+		visual (data, &button);
 	}
 	greeting_message(data->champs[data->winner_id - 1].uid,
 					 data->champs[data->winner_id - 1].header.prog_name);

@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:52:05 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/05 16:56:30 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 20:21:27 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,17 @@ int 	main(int ac, char **av)
 	{
 		init(&data);
 		parse_arguments(ac, (const char**)av, &data);
+
+		//
+
+		// while (data.carriage_list != NULL)
+		// {
+		// 	printf("color code : %d\n", data.carriage_list->color_code);
+		// 	data.carriage_list = data.carriage_list->next;
+		// }
+		// return (0);
+		//
+
 		game(&data);
 	}
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_sub.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:07:06 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/05 19:42:33 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 20:06:47 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	add(t_data *data, t_carriage **carriage, int32_t pos)
 										 + (*carriage)->registers[r_inx2 - 1];
 	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 #ifdef TEST
-	ft_printf("r%d r%d r%d\n", r_inx1, r_inx2, r_inx3);
+	// ft_printf("r%d r%d r%d\n", r_inx1, r_inx2, r_inx3);
 
 #endif
 }
@@ -43,7 +43,7 @@ void	sub(t_data *data, t_carriage **carriage, int32_t pos)
 										 - (*carriage)->registers[r_inx2 - 1];
 	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 #ifdef TEST
-	ft_printf("r%d r%d r%d\n", r_inx1, r_inx2, r_inx3);
+	// ft_printf("r%d r%d r%d\n", r_inx1, r_inx2, r_inx3);
 
 #endif
 }

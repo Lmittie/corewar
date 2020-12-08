@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ld.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:27 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/05 20:01:09 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 20:07:32 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ld(t_data *data, t_carriage **carriage, int32_t pos)
 //	ft_printf("arg = %d (%x), reg = %d (%x), r_val = %d, carry %d\n",
 //			  arg, arg, r_inx, r_inx, (*carriage)->registers[r_inx - 1], (*carriage)->carry);
 #ifdef TEST
-	ft_printf("%d r%d\n", arg, r_inx);
+	// ft_printf("%d r%d\n", arg, r_inx);
 
 #endif
 }
@@ -65,8 +65,8 @@ void	ldi(t_data *data, t_carriage **carriage, int32_t pos)
 //		   arg1, arg1, arg2, arg2, (*carriage)->registers[r_inx3 - 1],
 //			  (*carriage)->registers[r_inx3 - 1]);
 #ifdef TEST
-	ft_printf("%d %d r%d\n       | -> load from %d + %d = %d (with pc and mod %d)\n",
-		   arg1, arg2, r_inx3, arg1, arg2, arg1 + arg2, (*carriage)->curr_pos + (arg1 + arg2) % IDX_MOD);
+	// ft_printf("%d %d r%d\n       | -> load from %d + %d = %d (with pc and mod %d)\n",
+		//    arg1, arg2, r_inx3, arg1, arg2, arg1 + arg2, (*carriage)->curr_pos + (arg1 + arg2) % IDX_MOD);
 
 #endif
 }

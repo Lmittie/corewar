@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/08 19:51:15 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 20:11:20 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct		s_carriage
 	uint32_t			bytes_step;
 	int32_t				registers[REG_NUMBER];
 	uint8_t				args[3];
+	uint8_t				color_code;
 	struct s_carriage	*next;
 }					t_carriage;
 
@@ -77,7 +78,7 @@ extern t_op op_tab[17];
 
 int32_t	get_value(size_t size, const uint8_t (*arena)[MEM_SIZE], int32_t pos);
 int32_t	get_arg(uint8_t arg_type,  int32_t *pos, const uint8_t (*arena)[MEM_SIZE]);
-void	place_value(int32_t arg, int32_t pos, size_t size, t_data *data);
+void		place_value(int32_t arg, int32_t pos, t_carriage *carriage, t_data *data);
 
 int32_t	get_pos(int32_t pos);
 
@@ -107,6 +108,6 @@ void		lld(t_data *data, t_carriage **carriage, int32_t pos);
 void		lldi(t_data *data, t_carriage **carriage, int32_t pos);
 void		lfork(t_data *data, t_carriage **carriage, int32_t pos);
 void		aff(t_data *data, t_carriage **carriage, int32_t pos);
-void		visual(t_data *data);
+void		visual(t_data *data, int *button);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   st.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:08 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/06 19:54:43 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 20:09:45 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	st(t_data *data, t_carriage **carriage, int32_t pos)
 	else if ((*carriage)->args[1] == T_IND)
 		place_value((*carriage)->registers[r_inx1 - 1],
 					(*carriage)->curr_pos + r_inx2 % IDX_MOD,
-					REG_SIZE,
+					data->carriage_list,
 					data);
 	if ((*carriage)->args[1] == T_REG)
 		r_inx2 = (*carriage)->registers[r_inx2 - 1];
 #ifdef TEST
-	ft_printf("r%d %d\n", r_inx1, r_inx2);
+	// ft_printf("r%d %d\n", r_inx1, r_inx2);
 #endif
 }
 
@@ -54,12 +54,12 @@ void	sti(t_data *data, t_carriage **carriage, int32_t pos)
 		arg3 = (*carriage)->registers[arg3 - 1];
 	place_value(arg1,
 				(*carriage)->curr_pos % MEM_SIZE + (arg2 + arg3) % IDX_MOD,
-				REG_SIZE,
+				data->carriage_list,
 				data);
 
 #ifdef TEST
-	ft_printf("r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n",
-			  data->arena[get_pos((*carriage)->curr_pos + 2)],
-			  arg2, arg3, arg2, arg3, arg2 + arg3, (*carriage)->curr_pos % MEM_SIZE + (arg2 + arg3) % IDX_MOD);
+	// ft_printf("r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n",
+			//   data->arena[get_pos((*carriage)->curr_pos + 2)],
+			//   arg2, arg3, arg2, arg3, arg2 + arg3, (*carriage)->curr_pos % MEM_SIZE + (arg2 + arg3) % IDX_MOD);
 #endif
 }

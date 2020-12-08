@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cycles_to_die_check.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 18:48:46 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/05 21:11:51 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 20:07:04 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ctd_check(t_data *data)
 	{
 		data->cycles_to_die -= CYCLE_DELTA;
 #ifdef TEST
-		ft_printf("Cycle to die is now %d\n", data->cycles_to_die);
+		// ft_printf("Cycle to die is now %d\n", data->cycles_to_die);
 
 #endif
 		data->checks_counter = 0;

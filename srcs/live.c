@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   live.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:16 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/05 19:43:24 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 20:07:36 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		live(t_data *data, t_carriage **carriage, int32_t pos)
 	r = get_value(DIR_SIZE, &data->arena, pos);
 //	printf("arg = %d (dec), arg = %x (hec)\n", r, r);
 #ifdef TEST
-	ft_printf("%d\n", r);
+	// ft_printf("%d\n", r);
 
 #endif
 	if (r >= -data->players_num && r < 0)
