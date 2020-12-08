@@ -100,7 +100,7 @@ void	parse_exec_code_size(unsigned int *size, int fd)
 		exit(20);
 }
 
-void	init_carriage(t_carriage **clist, uint8_t uid, size_t pos)
+void	init_carriage(t_carriage **clist, uint32_t uid, size_t pos)
 {
 	t_carriage *carriage;
 

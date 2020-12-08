@@ -34,11 +34,6 @@ void	and(t_data *data, t_carriage **carriage, int32_t pos)
 	(*carriage)->registers[r_inx3 - 1] = arg1 & arg2;
 	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 
-//	ft_printf("arg1 = %d (%x), arg2 = %d (%x), r = %d (val %d / %x), carry %d\n",
-//			  arg1, arg1, arg2, arg2, r_inx3,
-//			  (*carriage)->registers[r_inx3 - 1],
-//			  (*carriage)->registers[r_inx3 - 1],
-//			  (*carriage)->carry);
 #ifdef TEST
 	ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
 
@@ -67,11 +62,6 @@ void	or(t_data *data, t_carriage **carriage, int32_t pos)
 	(*carriage)->registers[r_inx3 - 1] = arg1 | arg2;
 	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 
-//	ft_printf("arg1 = %d (%x), arg2 = %d (%x), r = %d (val %d / %x), carry %d\n",
-//			  arg1, arg1, arg2, arg2, r_inx3,
-//			  (*carriage)->registers[r_inx3 - 1],
-//			  (*carriage)->registers[r_inx3 - 1],
-//			  (*carriage)->carry);
 #ifdef TEST
 	ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
 
@@ -100,11 +90,6 @@ void	xor(t_data *data, t_carriage **carriage, int32_t pos)
 	(*carriage)->registers[r_inx3 - 1] = arg1 ^ arg2;
 	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 
-//	ft_printf("arg1 = %d (%x), arg2 = %d (%x), r = %d (val %d / %x), carry %d\n",
-//			  arg1, arg1, arg2, arg2, r_inx3,
-//			  (*carriage)->registers[r_inx3 - 1],
-//			  (*carriage)->registers[r_inx3 - 1],
-//			  (*carriage)->carry);
 #ifdef TEST
 	ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
 

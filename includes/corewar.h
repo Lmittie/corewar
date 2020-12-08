@@ -6,14 +6,14 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/06 20:20:06 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 19:25:25 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COREWAR_H
 
 # define COREWAR_H
-//# define TEST
+# define TEST
 
 # include "../ft_printf/ft_printf.h"
 # include "op.h"
@@ -27,7 +27,7 @@ typedef struct		s_champ
 
 typedef struct		s_carriage
 {
-	uint16_t			uid;
+	uint32_t			uid;
 	uint8_t				carry;
 	uint8_t				op_code;
 	int32_t				last_live_cycle;
@@ -75,11 +75,9 @@ typedef struct	s_op
 
 extern t_op op_tab[17];
 
-int cicle=0;
-
 int32_t	get_value(size_t size, const uint8_t (*arena)[MEM_SIZE], int32_t pos);
 int32_t	get_arg(uint8_t arg_type,  int32_t *pos, const uint8_t (*arena)[MEM_SIZE]);
-void	place_value(int32_t arg, int32_t pos, size_t size, uint8_t (*arena)[MEM_SIZE]);
+void	place_value(int32_t arg, int32_t pos, size_t size, t_data *data);
 
 int32_t	get_pos(int32_t pos);
 
@@ -89,7 +87,7 @@ void	parse_champions(t_args (*champs)[MAX_PLAYERS], t_data *data, const char **a
 void	game(t_data *data);
 void	ctd_check(t_data *data);
 
-void	init_carriage(t_carriage **clist, uint8_t uid, size_t pos);
+void	init_carriage(t_carriage **clist, uint32_t uid, size_t pos);
 
 void	print_arena_state(uint8_t (*arena)[MEM_SIZE]);
 

@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/06 20:15:00 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 19:14:24 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,17 +95,16 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 	uint8_t		arg_type;
 	uint8_t		wrong_args;
 
-	(*carriage)->bytes_step = 1; // escape code
+	(*carriage)->bytes_step = 1;
 	wrong_args = 0;
 	if (op_tab[(*carriage)->op_code - 1].arg_type_code)
 	{
 		i = 0;
-		(*carriage)->bytes_step++; // escape arg type code
+		(*carriage)->bytes_step++;
 		arg_type = (*arena)[((*carriage)->curr_pos + 1) % MEM_SIZE];
 		while (i < op_tab[(*carriage)->op_code - 1].args_num) // go forward args
 		{
 			(*carriage)->args[i] = one_argument_type(arg_type, 6 - i * 2);
-//			if ((*carriage)->args[i] == T_REG && (*carriage).)
 			wrong_args += invalid_arg(carriage, arena, i);
 			calc_one_arg_step((*carriage)->args[i],
 					 &(*carriage)->bytes_step, (*carriage)->op_code);
@@ -159,12 +158,8 @@ void	validate_and_exec(t_data *data, t_carriage **carriage)
 		return ;
 	if (!validate_args(carriage, &data->arena))
 		return ;
-//	ft_printf("op %s, cycle %d, pos = %d  |  ",
-//		   op_tab[(*carriage)->op_code - 1].op_name,
-//		   data->cycles,
-//			  (*carriage)->curr_pos);
 #ifdef TEST
-	ft_printf("P  %3d | %s ",
+	ft_printf("P %4u | %s ",
 		   (*carriage)->uid, op_tab[(*carriage)->op_code - 1].op_name, data->cycles,
 			  (*carriage)->curr_pos, (*carriage)->curr_pos + (*carriage)->bytes_step);
 

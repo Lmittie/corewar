@@ -16,11 +16,10 @@
       <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/d" beforeDir="false" afterPath="$PROJECT_DIR$/d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/corewar.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/corewar.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scr.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/fork.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/fork.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/add_sub.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/add_sub.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/game.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/game.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/handle_value.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/handle_value.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/st.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/st.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t1" beforeDir="false" afterPath="$PROJECT_DIR$/t1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t2" beforeDir="false" afterPath="$PROJECT_DIR$/t2" afterDir="false" />
     </list>
@@ -64,11 +63,6 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="corewar" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$PROJECT_DIR$/champs/jumper.cor" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="corewar" TARGET_NAME="corewar" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="corewar" RUN_TARGET_NAME="corewar">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -91,7 +85,8 @@
       <workItem from="1607194283433" duration="119000" />
       <workItem from="1607194458437" duration="17000" />
       <workItem from="1607194519441" duration="778000" />
-      <workItem from="1607263651720" duration="4317000" />
+      <workItem from="1607263651720" duration="6289000" />
+      <workItem from="1607436040172" duration="2571000" />
     </task>
     <servers />
   </component>
@@ -108,5 +103,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

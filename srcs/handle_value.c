@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 16:59:23 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/02 18:19:51 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 19:41:51 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,14 @@ int32_t		get_arg(uint8_t arg_type,  int32_t *pos, const uint8_t (*arena)[MEM_SIZ
 	return (arg);
 }
 
-void		place_value(int32_t arg, int32_t pos, size_t size, uint8_t (*arena)[MEM_SIZE])
+void		place_value(int32_t arg, int32_t pos, t_carriage *carriage, t_data *data)
 {
+	size_t size;
+
+	size = REG_SIZE;
 	while (size--)
 	{
-		(*arena)[get_pos(pos + size)] = arg & 0xFF;
+		data->arena[get_pos(pos + size)] = arg & 0xFF;
 		arg >>= (uint32_t)8;
 	}
 }
