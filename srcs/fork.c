@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:41 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/06 19:52:22 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 19:47:42 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	fork_(t_data *data, t_carriage **carriage, int32_t pos)
 			  (void*)carriage_copy->registers, sizeof(int32_t) * REG_NUMBER);
 	data->carriage_list->carry = carriage_copy->carry;
 	data->carriage_list->last_live_cycle = carriage_copy->last_live_cycle;
+	// data->carriage_list->color = carriage_copy->color;
 #ifdef TEST
 	ft_printf("%d (%d)\n", arg, data->carriage_list->curr_pos);
 #endif

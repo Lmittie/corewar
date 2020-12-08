@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 18:06:12 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/04 18:48:48 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/08 19:25:25 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ void	parse_exec_code(t_data *data, int fd, uint8_t uid)
 
 	i = (MEM_SIZE / data->players_num) * (uid - 1);
 	init_carriage(&data->carriage_list, uid, i);
+	// data->carriage_list->color = hui;
 	while (read(fd, &byte, 1))
 		data->arena[i++] = byte;
 }
