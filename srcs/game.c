@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2020/12/08 19:14:24 by lmittie          ###   ########.fr       */
+=======
+/*   Updated: 2020/12/07 20:19:34 by acarlett         ###   ########.fr       */
+>>>>>>> 68bf819d7f0b13995b838a653f6230b91d6b12b7
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,11 +129,11 @@ int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
 	return (1);
 }
 
-void	print(t_carriage *carriage) {
-	for (int i = 0; i < 16; ++i) {
+// void	print(t_carriage *carriage) {
+// 	for (int i = 0; i < 16; ++i) {
 
-	}
-}
+// 	}
+// }
 
 void	exec_op(t_data *data, t_carriage **carriage)
 {
@@ -158,12 +162,23 @@ void	validate_and_exec(t_data *data, t_carriage **carriage)
 		return ;
 	if (!validate_args(carriage, &data->arena))
 		return ;
+<<<<<<< HEAD
 #ifdef TEST
 	ft_printf("P %4u | %s ",
 		   (*carriage)->uid, op_tab[(*carriage)->op_code - 1].op_name, data->cycles,
 			  (*carriage)->curr_pos, (*carriage)->curr_pos + (*carriage)->bytes_step);
+=======
+//	ft_printf("op %s, cycle %d, pos = %d  |  ",
+//		   op_tab[(*carriage)->op_code - 1].op_name,
+//		   data->cycles,
+//			  (*carriage)->curr_pos);
+// #ifdef TEST
+// 	ft_printf("P  %3d | %s ",
+// 		   (*carriage)->uid, op_tab[(*carriage)->op_code - 1].op_name, data->cycles,
+// 			  (*carriage)->curr_pos, (*carriage)->curr_pos + (*carriage)->bytes_step);
+>>>>>>> 68bf819d7f0b13995b838a653f6230b91d6b12b7
 
-#endif
+// #endif
 	exec_op(data, carriage);
 }
 
@@ -193,17 +208,15 @@ void	greeting_message(uint8_t player_uid, const char *player_name)
 
 void	game(t_data *data)
 {
+	int 	button;
 	int32_t cycles_to_die;
 
+	button = '0';
 	cycles_to_die = 0;
 	data->winner_id = data->champs[data->players_num - 1].uid;
 	while (1)
 	{
 		data->cycles++;
-#ifdef TEST
-		ft_printf("It is now cycle %d\n", data->cycles);
-
-#endif
 		if (data->cycles == data->dump_cycles)
 		{
 			print_arena_state(&data->arena);
@@ -218,6 +231,7 @@ void	game(t_data *data)
 		}
 		if (data->carriage_list == NULL)
 			break ;
+		visual(data, &button);
 	}
 	greeting_message(data->champs[data->winner_id - 1].uid,
 					 data->champs[data->winner_id - 1].header.prog_name);
