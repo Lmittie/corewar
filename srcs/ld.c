@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:27 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/09 19:49:59 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/09 20:28:35 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void			ld(t_data *data, t_carriage **carriage, int32_t pos)
 	}
 	(*carriage)->registers[r_inx - 1] = arg;
 	(*carriage)->carry = (arg == 0) ? 1 : 0;
-
 	if (data->h_flag & OPERATIONS)
 		ft_printf("%d r%d\n", arg, r_inx);
 }

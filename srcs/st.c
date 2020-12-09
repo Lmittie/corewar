@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:08 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/09 16:56:48 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/09 20:28:35 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ void	sti(t_data *data, t_carriage **carriage, int32_t pos)
 				(*carriage)->curr_pos % MEM_SIZE + (arg2 + arg3) % IDX_MOD,
 				*carriage,
 				data);
-	ft_printf("r%d %d %d\n       "
+	if (data->h_flag & OPERATIONS)
+		ft_printf("r%d %d %d\n       "
 		   "| -> store to %d + %d = %d (with pc and mod %d)\n",
 			  data->arena[get_pos((*carriage)->curr_pos + 2)],
 			  arg2, arg3, arg2, arg3, arg2 + arg3,

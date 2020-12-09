@@ -129,7 +129,6 @@ void	parse_exec_code(t_data *data, int fd, uint8_t uid)
 
 	i = (MEM_SIZE / data->players_num) * (uid - 1);
 	init_carriage(&data->carriage_list, uid, i);
-	// data->carriage_list->color = hui;
 	while (read(fd, &byte, 1))
 		data->arena[i++] = byte;
 }
@@ -153,15 +152,15 @@ void	introduce_champions(t_champ champs[MAX_PLAYERS], int players_num)
 {
 	int i;
 
-	// ft_printf("Introducing contestants...\n");
+	ft_printf("Introducing contestants...\n");
 	i = 0;
 	while (i < players_num)
 	{
-		// ft_printf("* Player %u, weighing %u bytes, \"%s\" (\"%s\") !\n",
-			// champs[i].uid,
-			// champs[i].header.prog_size,
-			// champs[i].header.prog_name,
-			// champs[i].header.comment);
+		ft_printf("* Player %u, weighing %u bytes, \"%s\" (\"%s\") !\n",
+				  champs[i].uid,
+				  champs[i].header.prog_size,
+				  champs[i].header.prog_name,
+				  champs[i].header.comment);
 		i++;
 	}
 }

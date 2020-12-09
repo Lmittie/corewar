@@ -12,36 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36b03036-8e03-4f2b-b66b-5446734804e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/srcs/print.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/corewar.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/corewar.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/corewar.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/corewar.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/corewar_visual.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/corewar_visual.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/add_sub.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/add_sub.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/aff.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/aff.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/and_or_xor.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/and_or_xor.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/cycles_to_die_check.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/cycles_to_die_check.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/fork.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/fork.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/game.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/game.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/handle_value.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/handle_value.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ld.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ld.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/live.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/live.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/parse_arguments.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/parse_arguments.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/parse_champions.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/parse_champions.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/visual/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/visual/init.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/zjmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/zjmp.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +84,7 @@
       <workItem from="1607263651720" duration="6289000" />
       <workItem from="1607436040172" duration="2571000" />
       <workItem from="1607443883023" duration="2566000" />
-      <workItem from="1607519645174" duration="3595000" />
+      <workItem from="1607519645174" duration="6402000" />
     </task>
     <servers />
   </component>
