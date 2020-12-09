@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 18:12:59 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/09 14:55:40 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/09 18:03:28 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	handle_color_code(t_data *data)
 		i++;
 		tmp = tmp->next; 
 	}
-	ft_bzero(data->code_color, MEM_SIZE);
 }
 
 void	parse_arguments(int ac, const char **av, t_data *data)
@@ -116,6 +115,15 @@ void	parse_arguments(int ac, const char **av, t_data *data)
 		}
 		else if (!(ft_strcmp("-a", av[i])))
 			data->a_flag = 1;
+		else if (!(ft_strcmp("-v", av[i])))
+			data->v_flag = 1;
+		else if (!(ft_strcmp("-h", av[i])))
+		{
+			if (i + 1 != ac)
+				data->h_flag = ft_atoi(av[++i]);
+			else
+				exit(1);
+		}
 		else
 		{
 			add_arg_it(&arg_it, i);
