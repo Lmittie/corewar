@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/08 20:53:04 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/09 16:55:44 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,7 @@ void	game(t_data *data)
 	{
 		data->cycles++;
 #ifdef TEST
-		// ft_printf("It is now cycle %d\n", data->cycles);
+		ft_printf("It is now cycle %d\n", data->cycles);
 
 #endif
 		if (data->cycles == data->dump_cycles)
@@ -221,6 +221,21 @@ void	game(t_data *data)
 		}
 		if (data->carriage_list == NULL)
 			break ;
+
+			//
+			
+		// 	printf ("\n\n\n");
+		// 	while (abc != MEM_SIZE)
+		// 	{
+		// 		printf("%d ", data->code_color[abc]);
+
+		// 		if (abc % 190 == 0)
+		// 			printf ("\n");
+		// 		abc++;
+		// 	}
+
+			//
+
 		visual (data, &button);
 	}
 	greeting_message(data->champs[data->winner_id - 1].uid,

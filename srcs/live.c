@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:16 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/08 20:07:36 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/09 17:09:11 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ void		live(t_data *data, t_carriage **carriage, int32_t pos)
 	int32_t	r;
 
 	r = get_value(DIR_SIZE, &data->arena, pos);
-//	printf("arg = %d (dec), arg = %x (hec)\n", r, r);
 #ifdef TEST
-	// ft_printf("%d\n", r);
+	ft_printf("%d\n", r);
 
 #endif
 	if (r >= -data->players_num && r < 0)
 	{
 		data->winner_id = r * -1;
-//		printf("A process shows that %d (%s) is alive\n",
-//			   r * -1,
-//			   data->champs[-r - 1].header.prog_name);
+		// printf("A process shows that %d (%s) is alive\n",
+		// 	   r * -1,
+		// 	   data->champs[-r - 1].header.prog_name);
 	}
 	(*carriage)->last_live_cycle = data->cycles;
+	(*carriage)->curr_live_num++;
 	data->live_op_counter++;
 }

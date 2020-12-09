@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 23:30:54 by acarlett          #+#    #+#             */
-/*   Updated: 2020/12/08 20:52:51 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/09 17:04:34 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <panel.h>
 #include <sys/ioctl.h>
 #include <stdio.h>
+
+int buff;
 
 void		init_ncurses(t_data *data, t_visual *visual, struct winsize *win_size)
 {
@@ -47,6 +49,11 @@ void		make_arena(t_data *data, WINDOW *arena_win, t_visual *visual)
 			wattron(arena_win, COLOR_PAIR(count_champs + 1));
 		}
 
+		if (data->code_color[i])
+		{
+			wattron(arena_win, COLOR_PAIR(data->code_color[i]));
+		}
+
 		
 		if (visual->carriage[i] != 0)
 		{
@@ -54,6 +61,11 @@ void		make_arena(t_data *data, WINDOW *arena_win, t_visual *visual)
 		}
 		wprintw(arena_win, "%02x", data->arena[i]);
 
+
+		if (data->code_color[i])
+		{
+			wattroff(arena_win, COLOR_PAIR(data->code_color[i]));
+		}
 
 		if (visual->carriage[i] != 0)
 		{
@@ -70,8 +82,10 @@ void		make_arena(t_data *data, WINDOW *arena_win, t_visual *visual)
 			wattroff(arena_win, COLOR_PAIR(count_champs + 1));
 			code_size = 0;
 			count_champs++;
-			if (count_champs >= data->players_num)
-				count_champs = data->players_num;
+
+			if (count_champs >= data->players_num){
+				count_champs = data->players_num - 1;
+			}
 		}
 		i++;
 	}
@@ -99,6 +113,20 @@ void		make_color_pair()
 	init_pair(7, COLOR_BLACK, COLOR_WHITE);
 }
 
+int			carriage_length(t_carriage *tmp)
+{
+	int i;
+
+	i = 0;
+	while (tmp != NULL)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+
+}
+
 void		make_info_table(t_data *data, WINDOW *info_win)
 {
 	int i;
@@ -120,7 +148,12 @@ void		make_info_table(t_data *data, WINDOW *info_win)
 	wattron(info_win, COLOR_PAIR(6));
 	wprintw(info_win, "  LIVE COUNTER:");
 	wattron(info_win, COLOR_PAIR(5));
-	wprintw(info_win, "  %d\n\n\n", data->live_op_counter);	
+	wprintw(info_win, "  %d\n\n", data->live_op_counter);	
+		
+	wattron(info_win, COLOR_PAIR(6));
+	wprintw(info_win, "  PROCESSES:");
+	wattron(info_win, COLOR_PAIR(5));
+	wprintw(info_win, "  %d\n\n\n", carriage_length(data->carriage_list));	
 
 	while (++i != data->players_num)
 	{
@@ -163,7 +196,7 @@ void		first_init(t_data *data, t_visual *visual)
 
 	while (tmp != NULL)
 	{
-		visual->carriage[tmp->curr_pos] = tmp->color_code;
+		visual->carriage[get_pos(tmp->curr_pos)] = tmp->color_code;
 		tmp = tmp->next;
 	}
 }
@@ -188,7 +221,7 @@ void		visual(t_data *data, int *button)
 
 
 		refresh();
-		delay_output(25);
+		delay_output(5);
 		wrefresh(visual.wins.arena_win);
 		wrefresh(visual.wins.info_win);
 	}

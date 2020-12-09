@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 18:12:59 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/08 20:38:55 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/09 14:55:40 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	handle_color_code(t_data *data)
 		i++;
 		tmp = tmp->next; 
 	}
+	ft_bzero(data->code_color, MEM_SIZE);
 }
 
 void	parse_arguments(int ac, const char **av, t_data *data)

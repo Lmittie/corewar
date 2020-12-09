@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:41 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/08 20:15:28 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/09 16:55:26 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	fork_(t_data *data, t_carriage **carriage, int32_t pos)
 	data->carriage_list->last_live_cycle = carriage_copy->last_live_cycle;
 	data->carriage_list->color_code = carriage_copy->color_code;
 #ifdef TEST
-	// ft_printf("%d (%d)\n", arg, data->carriage_list->curr_pos);
+	ft_printf("%d (%d)\n", arg, data->carriage_list->curr_pos);
 #endif
 }
 
@@ -51,6 +51,6 @@ void	lfork(t_data *data, t_carriage **carriage, int32_t pos)
 	data->carriage_list->color_code = carriage_copy->color_code;
 
 #ifdef TEST
-	// ft_printf("%d (%d)\n", arg, data->carriage_list->curr_pos);
+	ft_printf("%d (%d)\n", arg, data->carriage_list->curr_pos);
 #endif
 }

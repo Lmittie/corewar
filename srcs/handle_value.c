@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_value.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 16:59:23 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/08 19:41:51 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/09 16:42:57 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void		place_value(int32_t arg, int32_t pos, t_carriage *carriage, t_data *data)
 	while (size--)
 	{
 		data->arena[get_pos(pos + size)] = arg & 0xFF;
+		data->code_color[get_pos(pos + size)] = carriage->color_code;
 		arg >>= (uint32_t)8;
 	}
 }

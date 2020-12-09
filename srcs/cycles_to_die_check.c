@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 18:48:46 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/08 20:07:04 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/09 17:11:47 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ctd_check(t_data *data)
 	prev_it = NULL;
 	while (it)
 	{
+		it->curr_live_num = 0;
 		if (data->cycles - it->last_live_cycle >= data->cycles_to_die)
 		{
 			del_carriage(&it, &prev_it, &data->carriage_list);
@@ -50,8 +51,7 @@ void	ctd_check(t_data *data)
 	{
 		data->cycles_to_die -= CYCLE_DELTA;
 #ifdef TEST
-		// ft_printf("Cycle to die is now %d\n", data->cycles_to_die);
-
+		ft_printf("Cycle to die is now %d\n", data->cycles_to_die);
 #endif
 		data->checks_counter = 0;
 	}

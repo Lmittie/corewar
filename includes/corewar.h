@@ -6,14 +6,14 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/08 20:11:20 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/09 16:57:14 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COREWAR_H
 
 # define COREWAR_H
-# define TEST
+// # define TEST
 
 # include "../ft_printf/ft_printf.h"
 # include "op.h"
@@ -31,6 +31,7 @@ typedef struct		s_carriage
 	uint8_t				carry;
 	uint8_t				op_code;
 	int32_t				last_live_cycle;
+	int32_t				curr_live_num;
 	uint16_t			cycles_before;
 	int32_t				curr_pos;
 	uint32_t			bytes_step;
@@ -50,6 +51,7 @@ typedef struct		s_data
 {
 	t_champ				champs[MAX_PLAYERS];
 	uint16_t			players_num;
+	uint8_t				code_color[MEM_SIZE];
 	uint8_t				arena[MEM_SIZE];
 	t_carriage			*carriage_list;
 	uint8_t				winner_id;

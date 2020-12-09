@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:50 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/08 20:06:58 by acarlett         ###   ########.fr       */
+/*   Updated: 2020/12/09 16:55:17 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	or(t_data *data, t_carriage **carriage, int32_t pos)
 	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 
 #ifdef TEST
-	// ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
+	ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
 
 #endif
 }
@@ -91,7 +91,7 @@ void	xor(t_data *data, t_carriage **carriage, int32_t pos)
 	(*carriage)->carry = ((*carriage)->registers[r_inx3 - 1]) ? 0 : 1;
 
 #ifdef TEST
-	// ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
+	ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
 
 #endif
 }
