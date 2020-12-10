@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:27 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/09 20:28:35 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/10 21:28:59 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int32_t	change_value(
 		arg = (*carriage)->registers[arg - 1];
 	else if ((*carriage)->args[inx] == T_IND)
 		arg = get_value(DIR_SIZE, &data->arena,
-						 (*carriage)->curr_pos + arg);
+						(*carriage)->curr_pos + arg);
 	return (arg);
 }
 
@@ -38,7 +38,8 @@ void			ld(t_data *data, t_carriage **carriage, int32_t pos)
 
 	arg = get_arg((*carriage)->args[0], &pos, &data->arena);
 	r_inx = data->arena[get_pos(pos)];
-	if ((*carriage)->args[0] == T_IND) {
+	if ((*carriage)->args[0] == T_IND)
+	{
 		arg = get_value(DIR_SIZE, &data->arena,
 						(*carriage)->curr_pos + arg % IDX_MOD);
 	}
@@ -64,9 +65,8 @@ void			ldi(t_data *data, t_carriage **carriage, int32_t pos)
 	if (data->h_flag & OPERATIONS)
 		ft_printf("%d %d r%d\n       "
 			"| -> load from %d + %d = %d (with pc and mod %d)\n",
-		    arg1, arg2, r_inx3, arg1, arg2, arg1 + arg2,
-		    (*carriage)->curr_pos + (arg1 + arg2) % IDX_MOD);
-
+			arg1, arg2, r_inx3, arg1, arg2, arg1 + arg2,
+			(*carriage)->curr_pos + (arg1 + arg2) % IDX_MOD);
 }
 
 void			lld(t_data *data, t_carriage **carriage, int32_t pos)
@@ -100,7 +100,7 @@ void			lldi(t_data *data, t_carriage **carriage, int32_t pos)
 			(*carriage)->curr_pos + (arg1 + arg2));
 	if (data->h_flag & OPERATIONS)
 		ft_printf("%d %d r%d\n       "
-				  "| -> load from %d + %d = %d (with pc and mod %d)\n",
-				  arg1, arg2, r_inx3, arg1, arg2, arg1 + arg2,
-				  (*carriage)->curr_pos + (arg1 + arg2));
+				"| -> load from %d + %d = %d (with pc and mod %d)\n",
+				arg1, arg2, r_inx3, arg1, arg2, arg1 + arg2,
+				(*carriage)->curr_pos + (arg1 + arg2));
 }

@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:41 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/09 18:02:08 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/10 21:22:52 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	copy_fields(t_carriage *lhs, t_carriage *rhs)
 {
 	ft_memcpy((void*)lhs->registers,
-			  (void*)rhs->registers, sizeof(int32_t) * REG_NUMBER);
+			(void*)rhs->registers, sizeof(int32_t) * REG_NUMBER);
 	lhs->carry = rhs->carry;
 	lhs->last_live_cycle = rhs->last_live_cycle;
 	lhs->color_code = rhs->color_code;

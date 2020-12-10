@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:50 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/09 18:00:14 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/10 21:26:38 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ static int32_t	change_value(
 		arg = (*carriage)->registers[arg - 1];
 	else if ((*carriage)->args[inx] == T_IND)
 		arg = get_value(DIR_SIZE, &data->arena,
-						 (*carriage)->curr_pos + arg);
+						(*carriage)->curr_pos + arg);
 	return (arg);
 }
 
-void	and(t_data *data, t_carriage **carriage, int32_t pos)
+void			and(t_data *data, t_carriage **carriage, int32_t pos)
 {
 	int32_t	arg1;
 	int32_t	arg2;
@@ -44,7 +44,7 @@ void	and(t_data *data, t_carriage **carriage, int32_t pos)
 		ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
 }
 
-void	or(t_data *data, t_carriage **carriage, int32_t pos)
+void			or(t_data *data, t_carriage **carriage, int32_t pos)
 {
 	int32_t	arg1;
 	int32_t	arg2;
@@ -59,7 +59,7 @@ void	or(t_data *data, t_carriage **carriage, int32_t pos)
 		ft_printf("%d %d r%d\n", arg1, arg2, r_inx3);
 }
 
-void	xor(t_data *data, t_carriage **carriage, int32_t pos)
+void			xor(t_data *data, t_carriage **carriage, int32_t pos)
 {
 	int32_t	arg1;
 	int32_t	arg2;

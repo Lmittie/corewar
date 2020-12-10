@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:45:53 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/10 17:13:55 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/10 21:32:17 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,18 @@ uint8_t	one_argument_type(uint8_t arg_type, uint8_t shift)
 	return (0);
 }
 
-int invalid_register(uint8_t reg_num)
+int 	invalid_register(uint8_t reg_num)
 {
 	if (reg_num == 0 || reg_num > REG_NUMBER)
 		return (1);
 	return (0);
 }
 
-int invalid_arg(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE], int i)
+int 	invalid_arg(t_carriage **carriage,
+					const uint8_t (*arena)[MEM_SIZE], int i)
 {
-	if (!((*carriage)->args[i] & op_tab[(*carriage)->op_code - 1].args_type[i]))
+	if (!((*carriage)->args[i] &
+				op_tab[(*carriage)->op_code - 1].args_type[i]))
 		return (1);
 	if ((*carriage)->args[i] == T_REG &&
 			invalid_register(
@@ -63,7 +65,8 @@ int invalid_arg(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE], int i)
 	return (0);
 }
 
-void	calc_one_arg_step(uint8_t arg_type, uint32_t *bytes_step, uint8_t op_code)
+void	calc_one_arg_step(uint8_t arg_type,
+						uint32_t *bytes_step, uint8_t op_code)
 {
 	if (arg_type == T_REG)
 		*bytes_step += T_REG;
@@ -73,7 +76,8 @@ void	calc_one_arg_step(uint8_t arg_type, uint32_t *bytes_step, uint8_t op_code)
 		*bytes_step += IND_SIZE;
 }
 
-void	validate_with_type_code(t_carriage **carriage, uint8_t *wrong_args, const uint8_t (*arena)[MEM_SIZE])
+void	validate_with_type_code(t_carriage **carriage,
+		uint8_t *wrong_args, const uint8_t (*arena)[MEM_SIZE])
 {
 	int		i;
 	uint8_t	arg_type;
@@ -86,15 +90,15 @@ void	validate_with_type_code(t_carriage **carriage, uint8_t *wrong_args, const u
 		(*carriage)->args[i] = one_argument_type(arg_type, 6 - i * 2);
 		*wrong_args += invalid_arg(carriage, arena, i);
 		calc_one_arg_step(
-				(*carriage)->args[i],
-				&(*carriage)->bytes_step,
-				(*carriage)->op_code
-				);
+							(*carriage)->args[i],
+							&(*carriage)->bytes_step,
+							(*carriage)->op_code);
 		i++;
 	}
 }
 
-void	validate_without_type_code(t_carriage **carriage, uint8_t *wrong_args, const uint8_t (*arena)[MEM_SIZE])
+void	validate_without_type_code(t_carriage **carriage,
+			uint8_t *wrong_args, const uint8_t (*arena)[MEM_SIZE])
 {
 	int i;
 
@@ -115,7 +119,8 @@ void	validate_without_type_code(t_carriage **carriage, uint8_t *wrong_args, cons
 	}
 }
 
-int		validate_args(t_carriage **carriage, const uint8_t (*arena)[MEM_SIZE])
+int		validate_args(t_carriage **carriage,
+						const uint8_t (*arena)[MEM_SIZE])
 {
 	uint8_t		wrong_args;
 
@@ -152,10 +157,10 @@ void	validate_and_exec(t_data *data, t_carriage **carriage)
 		return ;
 	if (data->h_flag & OPERATIONS)
 		ft_printf("P %4u | %s ",
-			  (*carriage)->uid, op_tab[(*carriage)->op_code - 1].op_name,
-			  data->cycles,
-			  (*carriage)->curr_pos,
-			  (*carriage)->curr_pos + (*carriage)->bytes_step);
+			(*carriage)->uid, op_tab[(*carriage)->op_code - 1].op_name,
+			data->cycles,
+			(*carriage)->curr_pos,
+			(*carriage)->curr_pos + (*carriage)->bytes_step);
 	exec_op(data, carriage);
 }
 
@@ -179,13 +184,14 @@ void	carriage_check(t_data *data)
 void	greeting_message(uint8_t player_uid, const char *player_name)
 {
 	ft_printf("Contestant %u, \"%s\", has won !\n",
-			  player_uid,
-			  player_name);
+			player_uid,
+			player_name);
 }
 
 void	is_cycle_to_die(t_data *data, int32_t *cycles_to_die)
 {
-	if (++(*cycles_to_die) == data->cycles_to_die || data->cycles_to_die < 0)
+	if (++(*cycles_to_die) == data->cycles_to_die ||
+								data->cycles_to_die < 0)
 	{
 		ctd_check(data);
 		*cycles_to_die = 0;
@@ -216,8 +222,8 @@ void	game(t_data *data)
 		if (data->carriage_list == NULL)
 			break ;
 		if (data->v_flag)
-			visual(data, &button);
+			visual(data, &button, 1);
 	}
 	greeting_message(data->champs[data->winner_id - 1].uid,
-					 data->champs[data->winner_id - 1].header.prog_name);
+					data->champs[data->winner_id - 1].header.prog_name);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 19:35:07 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/09 19:41:25 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/10 21:30:08 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void 	print_usage()
+void 	print_usage(void)
 {
 	ft_printf("Usage:  ./corewar "
 			  "[-dump nbr_cycles] [-h mask] [-a] [-v]"

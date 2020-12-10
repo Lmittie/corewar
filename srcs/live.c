@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:16 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/09 18:00:14 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/10 21:21:50 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void		live(t_data *data, t_carriage **carriage, int32_t pos)
 		data->winner_id = r * -1;
 		if (data->h_flag & LIVES)
 			printf("A process shows that %d (%s) is alive\n",
-			   r * -1,
-			   data->champs[-r - 1].header.prog_name);
+				r * -1,
+				data->champs[-r - 1].header.prog_name);
 	}
 	(*carriage)->last_live_cycle = data->cycles;
 	data->live_op_counter++;

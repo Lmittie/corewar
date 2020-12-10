@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   visual.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/19 20:52:05 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/10 21:27:05 by acarlett         ###   ########.fr       */
+/*   Created: 2020/12/09 19:05:10 by acarlett          #+#    #+#             */
+/*   Updated: 2020/12/09 19:45:38 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "../../includes/corewar_visual.h"
 
-void	init(t_data *data)
+void		visual(t_data *data, int *button, int flag)
 {
-	ft_bzero(data, sizeof(t_data));
-	data->cycles_to_die = CYCLE_TO_DIE;
-	data->carriage_list = NULL;
-}
+	t_visual visual;
 
-int		main(int ac, char **av)
-{
-	t_data	data;
-
-	if (ac == 1)
-		print_usage();
-	else
+	first_init(data, &visual);
+	init_ncurses(data, &visual, &(visual.win_size));
+	if (*button == ' ' || flag)
 	{
-		init(&data);
-		parse_arguments(ac, (const char**)av, &data);
-		game(&data);
+		show_arena(data, visual, button);
+		handle_keys(button);
 	}
-	return (0);
+	delwin(visual.wins.arena_win);
+	delwin(visual.wins.info_win);
+	curs_set(true);
 }

@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/09 19:39:57 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/10 21:18:58 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct		s_carriage
 	uint8_t				carry;
 	uint8_t				op_code;
 	int32_t				last_live_cycle;
+	int32_t				curr_live_num;
 	uint16_t			cycles_before;
 	int32_t				curr_pos;
 	uint32_t			bytes_step;
@@ -53,6 +54,7 @@ typedef struct		s_data
 {
 	t_champ				champs[MAX_PLAYERS];
 	uint16_t			players_num;
+	uint8_t				code_color[MEM_SIZE];
 	uint8_t				arena[MEM_SIZE];
 	t_carriage			*carriage_list;
 	uint8_t				winner_id;
@@ -114,7 +116,7 @@ void		lld(t_data *data, t_carriage **carriage, int32_t pos);
 void		lldi(t_data *data, t_carriage **carriage, int32_t pos);
 void		lfork(t_data *data, t_carriage **carriage, int32_t pos);
 void		aff(t_data *data, t_carriage **carriage, int32_t pos);
+void		visual(t_data *data, int *button, int flag);
 
-void		visual(t_data *data, int *button);
 
 #endif

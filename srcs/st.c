@@ -6,13 +6,13 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 17:06:08 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/09 20:28:35 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/10 21:29:12 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	st(t_data *data, t_carriage **carriage, int32_t pos)
+void			st(t_data *data, t_carriage **carriage, int32_t pos)
 {
 	int16_t	r_inx1;
 	int32_t	r_inx2;
@@ -47,11 +47,11 @@ static int32_t	change_value(
 		arg = (*carriage)->registers[arg - 1];
 	else if ((*carriage)->args[inx] == T_IND)
 		arg = get_value(DIR_SIZE, &data->arena,
-						 (*carriage)->curr_pos + arg);
+						(*carriage)->curr_pos + arg);
 	return (arg);
 }
 
-void	sti(t_data *data, t_carriage **carriage, int32_t pos)
+void			sti(t_data *data, t_carriage **carriage, int32_t pos)
 {
 	int32_t	arg1;
 	int32_t	arg2;
@@ -68,8 +68,8 @@ void	sti(t_data *data, t_carriage **carriage, int32_t pos)
 				data);
 	if (data->h_flag & OPERATIONS)
 		ft_printf("r%d %d %d\n       "
-		   "| -> store to %d + %d = %d (with pc and mod %d)\n",
-			  tmp_reg,
-			  arg2, arg3, arg2, arg3, arg2 + arg3,
-			  (*carriage)->curr_pos % MEM_SIZE + (arg2 + arg3) % IDX_MOD);
+			"| -> store to %d + %d = %d (with pc and mod %d)\n",
+			tmp_reg,
+			arg2, arg3, arg2, arg3, arg2 + arg3,
+			(*carriage)->curr_pos % MEM_SIZE + (arg2 + arg3) % IDX_MOD);
 }
