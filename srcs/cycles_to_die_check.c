@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 18:48:46 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/09 18:00:14 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/10 19:01:47 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	del_carriage(t_carriage **to_del, t_carriage **prev, t_carriage **head)
 	}
 }
 
-void	ctd_check(t_data *data)
+void	del_carriages(t_data *data)
 {
 	t_carriage *it;
 	t_carriage *prev_it;
@@ -45,14 +45,17 @@ void	ctd_check(t_data *data)
 		prev_it = it;
 		it = it->next;
 	}
+}
+
+void	ctd_check(t_data *data)
+{
+	del_carriages(data);
 	data->checks_counter++;
 	if (data->live_op_counter >= NBR_LIVE || data->checks_counter >= MAX_CHECKS)
 	{
 		data->cycles_to_die -= CYCLE_DELTA;
-#ifdef TEST
-		// ft_printf("Cycle to die is now %d\n", data->cycles_to_die);
-
-#endif
+		if (data->h_flag & CYCLES)
+			ft_printf("Cycle to die is now %d\n", data->cycles_to_die);
 		data->checks_counter = 0;
 	}
 	data->live_op_counter = 0;

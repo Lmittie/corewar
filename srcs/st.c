@@ -56,8 +56,10 @@ void	sti(t_data *data, t_carriage **carriage, int32_t pos)
 	int32_t	arg1;
 	int32_t	arg2;
 	int32_t	arg3;
+	uint8_t tmp_reg;
 
-	arg1 = (*carriage)->registers[data->arena[get_pos(pos++)] - 1];
+	tmp_reg = data->arena[get_pos(pos++)];
+	arg1 = (*carriage)->registers[tmp_reg - 1];
 	arg2 = change_value(carriage, data, &pos, 1);
 	arg3 = change_value(carriage, data, &pos, 2);
 	place_value(arg1,
@@ -67,7 +69,7 @@ void	sti(t_data *data, t_carriage **carriage, int32_t pos)
 	if (data->h_flag & OPERATIONS)
 		ft_printf("r%d %d %d\n       "
 		   "| -> store to %d + %d = %d (with pc and mod %d)\n",
-			  data->arena[get_pos((*carriage)->curr_pos + 2)],
+			  tmp_reg,
 			  arg2, arg3, arg2, arg3, arg2 + arg3,
 			  (*carriage)->curr_pos % MEM_SIZE + (arg2 + arg3) % IDX_MOD);
 }

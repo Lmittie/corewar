@@ -86,7 +86,7 @@ void	print_arena_state(uint8_t (*arena)[MEM_SIZE]);
 
 int32_t	get_value(size_t size, const uint8_t (*arena)[MEM_SIZE], int32_t pos);
 int32_t	get_arg(uint8_t arg_type,  int32_t *pos, const uint8_t (*arena)[MEM_SIZE]);
-void		place_value(int32_t arg, int32_t pos, t_carriage *carriage, t_data *data);
+void	place_value(int32_t arg, int32_t pos, t_carriage *carriage, t_data *data);
 
 int32_t	get_pos(int32_t pos);
 
