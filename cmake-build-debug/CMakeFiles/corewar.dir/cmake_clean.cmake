@@ -99,6 +99,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/corewar.dir/srcs/aff.c.o"
   "CMakeFiles/corewar.dir/srcs/and_or_xor.c.o"
   "CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.o"
+  "CMakeFiles/corewar.dir/srcs/error.c.o"
   "CMakeFiles/corewar.dir/srcs/fork.c.o"
   "CMakeFiles/corewar.dir/srcs/game.c.o"
   "CMakeFiles/corewar.dir/srcs/handle_value.c.o"

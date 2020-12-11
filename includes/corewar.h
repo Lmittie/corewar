@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 20:53:44 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/11 21:43:44 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/11 21:44:22 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void 	print_usage();
 void	print_arena_state(uint8_t *arena);
 void	introduce_champions(t_champ champs[MAX_PLAYERS], int players_num);
 void	greeting_message(uint8_t player_uid, const char *player_name);
+
+void	error_message(const char *error_message);
 
 int		validate_op(t_carriage *carriage);
 void	set_op_code(t_carriage *carriage, const uint8_t *arena);

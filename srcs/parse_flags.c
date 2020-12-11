@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 20:40:24 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/11 20:41:25 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/11 20:44:16 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	parse_dump(uint32_t *dump, const char **av, int *i, int ac)
 	if (*i + 1 != ac)
 		*dump = ft_atoi(av[++(*i)]);
 	else
-		exit(1);
+		error_message("Invalid usage of \"-dump\" option\n");
 	if (dump <= 0)
-		exit(1);
+		error_message("Invalid usage of \"-dump\" option\n");
 }
 
 void	switch_champions(t_args *champs, int n, int arg_it)
@@ -39,7 +39,7 @@ void	switch_champions(t_args *champs, int n, int arg_it)
 		i++;
 	}
 	if (i == MAX_PLAYERS)
-		exit(1);
+		error_message("Invalid usage of \"-n\" option\n");
 }
 
 void	parse_n_flag(int *i, int ac, const char **av, t_args *arg_it)
@@ -49,9 +49,9 @@ void	parse_n_flag(int *i, int ac, const char **av, t_args *arg_it)
 	if (*i + 1 != ac)
 		n = ft_atoi(av[++(*i)]);
 	else
-		exit(1);
+		error_message("Invalid usage of \"-n\" option\n");
 	if (n > MAX_PLAYERS || n <= 0 || arg_it[n - 1].n_flag)
-		exit(1);
+		error_message("Invalid usage of \"-n\" option\n");
 	if (arg_it[n - 1].arg_it)
 		switch_champions(arg_it, n, ++(*i));
 }
@@ -69,6 +69,6 @@ void	parse_flags(int *i, int ac, t_data *data, const char **av)
 		if (*i + 1 != ac)
 			data->h_flag = ft_atoi(av[++(*i)]);
 		else
-			exit(1);
+			error_message("Invalid usage of \"-h\" option\n");
 	}
 }

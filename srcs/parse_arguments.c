@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 18:12:59 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/11 20:04:43 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/11 20:44:16 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	add_arg_it(t_args *champs, int arg_it)
 		i++;
 	}
 	if (i == MAX_PLAYERS)
-		exit(1);
+		error_message("Too much players\n");
 }
 
 void	handle_arg_it(t_args *champs, int players_num)
@@ -42,7 +42,7 @@ void	handle_arg_it(t_args *champs, int players_num)
 		i++;
 	}
 	if (i != players_num)
-		exit(1);
+		error_message("Invalid usage of \"-n\" option");
 }
 
 void	handle_color_code(t_data *data)

@@ -400,6 +400,9 @@
 		<Unit filename="/Users/lmittie/Desktop/corewar/srcs/cycles_to_die_check.c">
 			<Option target="corewar"/>
 		</Unit>
+		<Unit filename="/Users/lmittie/Desktop/corewar/srcs/error.c">
+			<Option target="corewar"/>
+		</Unit>
 		<Unit filename="/Users/lmittie/Desktop/corewar/srcs/fork.c">
 			<Option target="corewar"/>
 		</Unit>

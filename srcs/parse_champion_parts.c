@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 20:50:20 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/11 20:50:20 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/11 20:51:54 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	parse_magic_header(unsigned int *magic_header, int fd)
 	{
 		*magic_header <<= (uint32_t)8;
 		if ((read(fd, &byte, 1)) < 0)
-			exit(18);
+			error_message("Invalid .cor file\n");
 		*magic_header |= byte;
 		i++;
 	}
 	if (*magic_header != COREWAR_EXEC_MAGIC)
-		exit(17);
+		error_message("Invalid magic header\n");
 }
 
 void	parse_champion_name(char (*name)[PROG_NAME_LENGTH + 1], int fd)
@@ -39,7 +39,7 @@ void	parse_champion_name(char (*name)[PROG_NAME_LENGTH + 1], int fd)
 	while (i < PROG_NAME_LENGTH)
 	{
 		if ((read(fd, &byte, 1)) < 0)
-			exit(16);
+			error_message("Invalid .cor file\n");
 		(*name)[i] = byte;
 		i++;
 	}
@@ -54,7 +54,7 @@ void	parse_champion_comment(char (*comment)[COMMENT_LENGTH + 1], int fd)
 	while (i < COMMENT_LENGTH)
 	{
 		if ((read(fd, &byte, 1)) < 0)
-			exit(15);
+			error_message("Invalid .cor file\n");
 		(*comment)[i] = byte;
 		i++;
 	}
@@ -70,12 +70,12 @@ void	parse_exec_code_size(unsigned int *size, int fd)
 	{
 		*size <<= (uint32_t)8;
 		if ((read(fd, &byte, 1)) < 0)
-			exit(19);
+			error_message("Invalid .cor file\n");
 		*size |= byte;
 		i++;
 	}
 	if (*size > CHAMP_MAX_SIZE || *size == 0)
-		exit(20);
+		error_message("Invalid code size\n");
 }
 
 void	parse_exec_code(t_data *data, int fd, uint8_t uid)

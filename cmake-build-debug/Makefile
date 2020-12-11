@@ -2843,6 +2843,33 @@ srcs/cycles_to_die_check.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.s
 .PHONY : srcs/cycles_to_die_check.c.s
 
+srcs/error.o: srcs/error.c.o
+
+.PHONY : srcs/error.o
+
+# target to build an object file
+srcs/error.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/error.c.o
+.PHONY : srcs/error.c.o
+
+srcs/error.i: srcs/error.c.i
+
+.PHONY : srcs/error.i
+
+# target to preprocess a source file
+srcs/error.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/error.c.i
+.PHONY : srcs/error.c.i
+
+srcs/error.s: srcs/error.c.s
+
+.PHONY : srcs/error.s
+
+# target to generate assembly for a file
+srcs/error.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar.dir/build.make CMakeFiles/corewar.dir/srcs/error.c.s
+.PHONY : srcs/error.c.s
+
 srcs/fork.o: srcs/fork.c.o
 
 .PHONY : srcs/fork.o
@@ -3638,6 +3665,9 @@ help:
 	@echo "... srcs/cycles_to_die_check.o"
 	@echo "... srcs/cycles_to_die_check.i"
 	@echo "... srcs/cycles_to_die_check.s"
+	@echo "... srcs/error.o"
+	@echo "... srcs/error.i"
+	@echo "... srcs/error.s"
 	@echo "... srcs/fork.o"
 	@echo "... srcs/fork.i"
 	@echo "... srcs/fork.s"

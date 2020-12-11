@@ -104,6 +104,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/lmittie/Desktop/corewar/srcs/aff.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/aff.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/and_or_xor.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/and_or_xor.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/cycles_to_die_check.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/cycles_to_die_check.c.o"
+  "/Users/lmittie/Desktop/corewar/srcs/error.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/error.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/fork.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/fork.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/game.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/game.c.o"
   "/Users/lmittie/Desktop/corewar/srcs/handle_value.c" "/Users/lmittie/Desktop/corewar/cmake-build-debug/CMakeFiles/corewar.dir/srcs/handle_value.c.o"

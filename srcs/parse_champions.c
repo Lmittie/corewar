@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 18:06:12 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/11 20:49:07 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/11 21:55:34 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	check_null_bytes(int fd)
 	uint32_t bytes;
 
 	if ((read(fd, &bytes, 4)) < 0 || bytes != 0)
-		exit(14);
+		error_message("No null bytes at bytecode\n");
 }
 
 int		parse_file_name(const char *file_name)
@@ -26,11 +26,11 @@ int		parse_file_name(const char *file_name)
 	char	*it;
 
 	if (!(it = ft_strchr(file_name, '.')))
-		exit(13);
+		error_message("Invalid expansion\n");
 	if (ft_strcmp(".cor", it))
-		exit(11);
+		error_message("Invalid expansion\n");
 	if ((fd = open(file_name, O_RDONLY)) < 0)
-		exit(12);
+		error_message("Cannot open file for reading\n");
 	return (fd);
 }
 
