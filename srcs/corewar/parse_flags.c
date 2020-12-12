@@ -6,7 +6,7 @@
 /*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 20:40:24 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/11 20:44:16 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/12 17:10:07 by lmittie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ void	parse_n_flag(int *i, int ac, const char **av, t_args *arg_it)
 		error_message("Invalid usage of \"-n\" option\n");
 	if (arg_it[n - 1].arg_it)
 		switch_champions(arg_it, n, ++(*i));
+	else
+	{
+		arg_it[n - 1].arg_it = ++(*i);
+		arg_it[n - 1].n_flag = 1;
+	}
 }
 
 void	parse_flags(int *i, int ac, t_data *data, const char **av)
