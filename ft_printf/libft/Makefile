@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fmallist <fmallist@student.42.fr>          +#+  +:+       +#+         #
+#    By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/04 20:24:18 by fmallist          #+#    #+#              #
-#    Updated: 2019/12/26 12:55:30 by fmallist         ###   ########.fr        #
+#    Updated: 2020/12/11 20:03:46 by acarlett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = 	ft_isspace.c			ft_lstreverse.c			ft_putchar.c			ft_strcapitalize.c		ft_st
 		ft_isalpha.c            ft_lstdelone.c          ft_memcpy.c             ft_putstr.c             ft_strdel.c             ft_strncat.c            ft_strtrim.c \
 		ft_isascii.c            ft_lstiter.c            ft_memdel.c             ft_putstr_fd.c          ft_strdup.c             ft_strncmp.c            ft_tolower.c \
 		ft_isdigit.c            ft_lstmap.c             ft_memmove.c            ft_sort_int_tab.c       ft_strequ.c             ft_strncpy.c            ft_toupper.c \
-		ft_isprint.c            ft_lstnew.c             ft_memset.c             ft_str_is_printable.c   ft_striter.c            ft_strnequ.c \
+		ft_isprint.c            ft_lstnew.c             ft_memset.c             ft_str_is_printable.c   ft_striter.c            ft_strnequ.c 			get_next_line.c \
 
 CFLAGS = -Wall -Wextra -Werror
 

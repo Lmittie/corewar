@@ -6,7 +6,7 @@
 /*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 23:13:25 by acarlett          #+#    #+#             */
-/*   Updated: 2020/12/12 15:55:11 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/12 16:57:27 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ typedef struct	s_visual
 /*
 ** init.c
 */
-void			init_ncurses(t_data *data,
-				t_visual *visual,
+void			init_ncurses(t_visual *visual,
 				struct winsize *win_size);
 void			first_init(t_data *data, t_visual *visual);
 void			init_utils_arena(int *i, int *code_size, int *count_champs);
@@ -64,7 +63,7 @@ void			make_color_pair();
 /*
 ** arena.c
 */
-void			show_arena(t_data *data, t_visual visual, int *button);
+void			show_arena(t_data *data, t_visual visual);
 void			make_arena(t_data *data, WINDOW *arena_win, t_visual *visual);
 
 #endif

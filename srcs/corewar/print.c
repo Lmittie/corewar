@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmittie <lmittie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acarlett <acarlett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 19:35:07 by lmittie           #+#    #+#             */
-/*   Updated: 2020/12/11 20:52:22 by lmittie          ###   ########.fr       */
+/*   Updated: 2020/12/12 16:35:40 by acarlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	print_usage(void)
 			"<[-n number] champion1.cor]> <...>\n"
 			"-dump nbr_cycles : Dumps memory after N cycles then exits\n"
 			"-n number        : Sets the number of the next player\n"
-			"-a        		: Prints output from aff (hidden by default)\n"
-			"-v				: Visualization (ncurses)\n"
-			"-h mask		    : Print system info\n"
+			"-a               : Prints output from aff (hidden by default)\n"
+			"-v               : Visualization (ncurses)\n"
+			"-h mask          : Print system info\n"
 			"masks:\n"
-			"1				: Show lives\n"
-			"2			  	: Show cycles\n"
-			"4				: Show operations\n");
+			"1                : Show lives\n"
+			"2                : Show cycles\n"
+			"4                : Show operations\n");
 }
 
 void	print_arena_state(uint8_t *arena)
@@ -42,6 +42,7 @@ void	print_arena_state(uint8_t *arena)
 			ft_printf("%.2x ", arena[i + j++]);
 		i += 64;
 	}
+	ft_printf("\n");
 }
 
 void	introduce_champions(t_champ champs[MAX_PLAYERS], int players_num)
