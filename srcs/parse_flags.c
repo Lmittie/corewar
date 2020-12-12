@@ -46,6 +46,7 @@ void	parse_n_flag(int *i, int ac, const char **av, t_args *arg_it)
 {
 	int n;
 
+	n = 0;
 	if (*i + 1 != ac)
 		n = ft_atoi(av[++(*i)]);
 	else

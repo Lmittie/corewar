@@ -78,7 +78,7 @@ void	game(t_data *data)
 		data->cycles++;
 		if (data->h_flag & CYCLES)
 			ft_printf("It is now cycle %d\n", data->cycles);
-		if (data->cycles == data->dump_cycles)
+		if ((uint32_t)data->cycles == data->dump_cycles)
 		{
 			print_arena_state(data->arena);
 			return ;
